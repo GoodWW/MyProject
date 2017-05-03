@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:padding="3dp">
+    <TextView
+        android:id="@+id/tv_prize_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="豪华游艇3日游"
+        android:layout_gravity="center"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textColor="#535252"/>
+
+    <TextView
+        android:id="@+id/tv_prize_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="豪华游艇3日游豪华游艇3日"
+        android:textColor="#535252"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_prize_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="2017.4.19-5.19"
+        android:textColor="#535252"
+        android:textSize="10sp"
+        android:gravity="center" />
+</LinearLayout>

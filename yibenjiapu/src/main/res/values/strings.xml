@@ -1,0 +1,180 @@
+<resources>
+    <string name="app_name">壹本家谱</string>
+
+    <!--3/7新增-->
+    <!--标题栏文字-->
+    <string name="title_about_us">关于我们</string>
+    <string name="title_add_user_info">添加用户基本信息</string>
+    <string name="title_tree_form">家谱组建</string>
+    <string name="title_change_pwd">修改密码</string>
+    <string name="title_change_phone">手机号码变更</string>
+    <string name="title_change_user_name">修改用户名</string>
+    <string name="title_setting">设&#160;&#160;&#160;&#160;置</string>
+    <string name="title_details">详细信息</string>
+    <string name="title_details_my">我的信息</string>
+    <string name="title_forget_pwd">忘记密码</string>
+    <string name="title_function_information">功能介绍</string>
+    <string name="title_help_center">帮助中心</string>
+    <string name="title_action">活&#160;&#160;&#160;&#160;动</string>
+    <string name="title_info">资&#160;&#160;&#160;&#160;讯</string>
+    <string name="title_jiapu_tree">家谱分支图</string>
+    <string name="title_login">登陆中心</string>
+    <string name="title_my_integral">积分商城</string>
+    <string name="title_my_prize">我的奖品</string>
+    <string name="title_new_jiapu">新建家谱</string>
+    <string name="title_regist">用户注册</string>
+    <string name="title_station_letter">站内信</string>
+    <string name="title_view_back">意见反馈</string>
+    <string name="title_main">主&#160;&#160;&#160;&#160;页</string>
+    <string name="title_my">我</string>
+    <string name="title_service">客服</string>
+
+    <!--添加用户基本信息页面-->
+    <string name="add_user_info_surnames">姓&#160;&#160;&#160;&#160;氏</string>
+    <string name="add_user_info_name">姓&#160;&#160;&#160;&#160;名</string>
+    <string name="add_user_info_id_card">身份证</string>
+    <string name="add_user_info_id_card_hint">请输入身份证号码</string>
+    <string name="add_user_info_gender">性&#160;&#160;&#160;&#160;别</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="add_user_info_age">年&#160;&#160;&#160;&#160;龄</string>
+    <string name="add_user_info_birthday">生&#160;&#160;&#160;&#160;日</string>
+    <string name="add_user_info_native_place">籍&#160;&#160;&#160;&#160;贯</string>
+    <string name="add_user_info_relation">关&#160;&#160;&#160;&#160;系</string>
+    <string name="add_user_info_local">常住地</string>
+    <string name="add_user_info_local_hint">请输入常住地址</string>
+    <string name="add_user_info_phone">电&#160;&#160;&#160;&#160;话</string>
+    <string name="add_user_info_phone_hint">请输入电话号码</string>
+    <string name="add_user_info_email">邮&#160;&#160;&#160;&#160;箱</string>
+    <string name="add_user_info_email_hint">请输入邮箱</string>
+    <string name="add_user_info_pwd">密&#160;&#160;&#160;&#160;码</string>
+    <string name="add_user_info_pwd_hint">请设置一个登陆密码</string>
+    <string name="add_user_info_pwd_again_hint">请再输入一次登录密码</string>
+    <!--家谱组件页面-->
+    <string name="tree_form_new">+  新建家谱</string>
+    <!--修改密码页面-->
+    <string name="change_pwd_phone_or_email_hint">请输入手机号或者邮箱</string>
+    <string name="change_pwd_verification_code_hint">请输入验证码</string>
+    <string name="change_pwd_verification_code_btn_text">免费获取</string>
+    <string name="change_pwd_new_hint">请输入1到16位新密码</string>
+    <string name="change_pwd_new_again_hint">请再次输入密码</string>
+    <string name="change_pwd_submit_sure">确认修改</string>
+    <!--手机号码变更页面-->
+    <string name="change_phone_number_hint">请输入注册的手机号码</string>
+    <string name="change_phone_number_new_hint">请输入新的手机号码</string>
+    <string name="change_phone_verification_code_hint">请输入验证码</string>
+    <string name="change_phone_verification_code_btn_text">免费获取</string>
+    <!--修改用户名页面-->
+    <string name="change_user_name_hint">输入用户名</string>
+    <string name="change_user_name_reminder">限4-16字符，一个汉字为两个字符</string>
+    <string name="change_user_name_btn_sure">确定</string>
+    <!--设置页面-->
+    <string name="setting_item_1">手机号码变更</string>
+    <string name="setting_item_2">清除视频缓存</string>
+    <string name="setting_item_3">功能介绍</string>
+    <string name="setting_item_4">修改密码</string>
+    <string name="setting_item_5">检查更新</string>
+    <string name="setting_item_6">关于我们</string>
+    <string name="setting_exit_login_btn">退出登陆</string>
+    <!--详细信息页面-->
+    <string name="details_reminder_avatar">头像</string>
+    <string name="details_reminder_nickname">昵称</string>
+    <string name="details_nickname">昵称昵称</string>
+    <string name="details_reminder_gender">性别</string>
+    <string name="details_gender">男</string>
+    <string name="details_reminder_signature">个性签名</string>
+    <string name="details_signature">个性签名个性签名</string>
+    <!--我的详细信息页面-->
+    <string name="my_details_reminder_avatar">头像</string>
+    <string name="my_details_reminder_nickname">昵称</string>
+    <string name="my_details_nickname">昵称昵称</string>
+    <string name="my_details_reminder_jiapu_id">家谱账号</string>
+    <string name="my_details_jiapu_id">123456789</string>
+    <string name="my_details_reminder_phone">手机号码</string>
+    <string name="my_details_phone">12345678912</string>
+    <string name="my_details_reminder_gender">性别</string>
+    <string name="my_details_gender">男</string>
+    <string name="my_details_reminder_signature">个性签名</string>
+    <string name="my_details_signature">个性签名个性签名</string>
+    <string name="my_details_reminder_jiapu_address">家谱地址</string>
+    <string name="my_details_jiapu_address">家谱地址家谱地址家谱地址家谱地址</string>
+    <!--忘记密码页面-->
+    <string name="forget_pwd_hint_phone">请输入手机号或者邮箱</string>
+    <string name="forget_pwd_hint_code">请输入验证码</string>
+    <string name="forget_pwd_btn_get_code">免费获取</string>
+    <string name="forget_pwd_hint_new_pwd">请输入6到16位新密码</string>
+    <string name="forget_pwd_hint_again_pwd">请再次输入密码</string>
+    <string name="forget_pwd_btn_submit">确认提交</string>
+    <!--帮助中心页面-->
+    <string name="help_center_tv">我的奖品解释</string>
+    <string name="help_center_item1_tv">我的奖品解释</string>
+    <string name="help_center_item2_tv">站内信解释</string>
+    <string name="help_center_item3_tv">接收推送信息解释</string>
+    <!--主页item详细页面-->
+    <string name="item_main_title1">姓氏起源</string>
+    <string name="item_main_title2">姓氏动态</string>
+    <string name="item_main_title3">家谱状况</string>
+    <string name="item_main_title31">我的家谱</string>
+    <string name="item_main_title32">30个家族</string>
+    <string name="item_main_item_abstract">一份简单的爱情，日出而作，日落而息。一同享受每天清晨的阳光，微风，雨露，黄昏。这样的愿望，算不算贪心。我想爱情，就是相濡以沫的过一生。接纳与磨合，让爱经得起流年。无名指上是一生唯一真爱的DR真爱戒指，平平淡淡之中的携手与幸福，才更珍贵</string>
+    <string name="item_main_item2_title">话题的标题</string>
+    <!--家谱树页面-->
+    <string name="jiapu_tree_item1">曾祖父(</string>
+    <string name="jiapu_tree_item2">曾祖母(</string>
+    <string name="jiapu_tree_item3">爷爷(</string>
+    <string name="jiapu_tree_item4">奶奶(</string>
+    <string name="jiapu_tree_item5">爸爸(</string>
+    <string name="jiapu_tree_item6">妈妈(</string>
+    <string name="jiapu_tree_item7">我(未登录)</string>
+    <string name="jiapu_tree_item8">媳妇(</string>
+    <string name="jiapu_tree_item9">儿子(</string>
+    <string name="jiapu_tree_item10">儿媳(</string>
+    <!--登陆中心页面-->
+    <string name="login_username">账号</string>
+    <string name="login_username_et">请输入您的账号</string>
+    <string name="login_pwd">密码</string>
+    <string name="login_pwd_et">请输入您的密码</string>
+    <string name="login_regist">注册账号</string>
+    <string name="login_forget_pwd">忘记密码</string>
+    <string name="login_qq">第三方登陆</string>
+    <!--主页-->
+    <string name="main_rl1">主页</string>
+    <string name="main_rl2">资讯</string>
+    <string name="main_rl3">活动</string>
+    <string name="main_rl4">客服</string>
+    <string name="main_rl5">我</string>
+    <!--用户注册页面-->
+    <string name="regist_hint_phone">请输入您的手机号</string>
+    <string name="regist_hint_code">请输入验证码</string>
+    <string name="regist_btn_get_code">免费获取</string>
+    <string name="regist_btn">立即注册</string>
+    <!--意见反馈页面-->
+    <string name="view_back">意见反馈</string>
+    <string name="view_back_hint">请输入您的宝贵意见！</string>
+    <string name="view_back_btn">提交</string>
+    <!--客服页面-->
+    <string name="service_right">发送</string>
+    <string name="service_left">左边</string>
+    <!--details_page-->
+    <string name="details_page_family">氏家族</string>
+    <string name="details_page_ancestral_home">祖籍：四川成都二道诃子</string>
+    <!--frag_info-->
+    <string name="frag_info1">啥的范德萨发士大夫阿双方的士大夫</string>
+    <string name="frag_info2_title">法规的发生股份的是个啥地方功夫大使馆的风格</string>
+    <string name="frag_info2">啥的范德萨发士大夫阿双方的啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫士大夫啥的范德萨发士大夫阿双方的士大夫</string>
+    <string name="frag_info2_time">13分钟前</string>
+    <string name="frag_info3">啥的范德萨发士大夫阿双方的啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫啥的范德萨发士大夫阿双方的士大夫士大夫啥的范德萨发士大夫阿双方的士大夫</string>
+    <!--popwindow-->
+    <string name="popwindow_btn1">相册</string>
+    <string name="popwindow_btn2">拍照</string>
+    <string name="popwindow_btn3">取消</string>
+    <!--station_letter-->
+    <string name="station_letter_title">站内信-好友申请</string>
+    <string name="station_letter">XXX申请添加你为好友</string>
+    <string name="station_letter_tag">官方</string>
+    <!--service-->
+    <string name="service_right_name">李四</string>
+    <string name="service_left_name">客服</string>
+
+    <string name="about_us">"2015年末将至时，团队创始人接到家里喜讯，表哥即将在老家举办婚礼，于是带上父母专程驱车前往参加，顺便过年，能感受到老大的喜悦之情洋溢于表，我们都知道他在很小的时候就随父母调迁至现在的城市生活，他表哥也在毕业之后来到同一座城市工作打拼，是他为数不多的关系紧密交集较多的亲戚之一，私下也是很好的哥们儿，想想都远开车一天半的路程呢，也颇为感动。 过完年上班后，免不了聊聊过年的经历，有同事问：“老大你多年未回回去应该很开心吧”老大接话到：“开心肯定开心，毕竟回去一趟祖地，也算认祖归宗了，不过回去的情况还是有一丝遗憾”看着老大样子，疑问丛生，为何如此呢 原来老大回去参加了表哥的婚礼之后免不了的走亲访友，每次席间本家内的亲朋好友都是推杯盏酒，相谈甚欢，还去了在文化革命时期被毁的老宗祠祭拜，不过他内心深处总会有一丝遗憾，虽然开心不过由于种种原因长久没有与族亲交流沟通亲情还是有些感觉陌生，自己这一脉感觉已然有点脱离宗族了，难免有些落寞之意，最后他聊到我们是做软件开发的能否做出一款属于我们家族内部的私密沟通交流软件呢，既可以弘扬我们的民俗文化，也让大家了解我们的溯源何在？不管身在何处也能让家族的情感更好的维系，能做出来的话一来可以弥补自身的遗憾而来也可以让所有人更加热爱自己的家族促进团结呢。 就这样，有了他的初心团队就开始实施起来，再后来就有了这款有着家谱信息溯源和安全私密的家族内部交流分享互助软件————壹本家谱。 "</string>
+</resources>

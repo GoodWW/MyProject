@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_information_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@mipmap/homepage_top_bg"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_info"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/btn_wv_back"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="返回"
+            android:background="@null" />
+
+    </RelativeLayout>
+    <WebView
+        android:id="@+id/wv_zx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

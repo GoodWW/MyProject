@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/item_fragment_main_head"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="3" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="11"
+                    android:orientation="vertical" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:id="@+id/item_fragment_main_first_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="赵"
+                            android:textColor="#000"
+                            android:textSize="19sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="氏"
+                            android:textColor="#000"
+                            android:textSize="19sp"
+                            android:textStyle="bold" />
+                        <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="在线:"
+                        android:textSize="12sp"
+                        />
+                        <TextView
+                            android:id="@+id/item_fragment_main_number"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="48"
+                            android:textSize="12sp"
+                            />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/item_fragment_main_intr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:lines="2"
+                        android:text="是法师打发第三方法师打发第三方啥的范德萨发是法师打发第三方法师是法师打发第三方法师打发第三方啥的范德萨发是法师打发第三方法师打发第三方啥的范德萨发大水大水是法师打发第三方法师打发第三方啥的范德萨发是法师打发第三方法师打发第三方啥的范德萨发大水大水打发第三方啥的范德萨发大水大水 阿斯顿发送到但是"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="45dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="分支："
+                    android:textColor="#d32727"
+                    android:id="@+id/textView2" />
+
+                <TextView
+                    android:id="@+id/item_fragment_main_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="30"
+                    android:textColor="#d32727"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:layout_toEndOf="@+id/textView2" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" >
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/num_1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="#bababa" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title" >
+
+        <TextView
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/title_forget_pwd" />
+        <TextView
+            android:id="@+id/forget_pass_word_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/back"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/forget_pwd_ll_marginTop"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/forget_pwd_ll_padding" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/change_pass_word_number"
+                    android:layout_width="@dimen/forget_pwd_et_width"
+                    android:layout_height="@dimen/forget_pwd_et_height"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/forget_pwd_hint_phone"
+                    android:paddingLeft="@dimen/forget_pwd_et_paddingLeft" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/change_pass_word_code"
+                    android:layout_width="@dimen/forget_pwd_et_width"
+                    android:layout_height="@dimen/forget_pwd_et_height"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/forget_pwd_hint_code"
+                    android:paddingLeft="@dimen/forget_pwd_et_paddingLeft" />
+
+                <Button
+                    android:id="@+id/change_pass_word_get_code_bt"
+                    android:layout_width="@dimen/forget_pwd_btn_get_code_width"
+                    android:layout_height="@dimen/forget_pwd_btn_get_code_height"
+                    android:layout_marginLeft="@dimen/forget_pwd_btn_get_code_marginLeft"
+                    android:background="@drawable/selector_get_code"
+                    android:text="@string/forget_pwd_btn_get_code"
+                    android:textColor="@color/forget_pwd_btn_tv"
+                    android:textSize="@dimen/forget_pwd_btn_get_code_tv"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/change_pass_word_again_pass_word"
+                    android:layout_width="@dimen/forget_pwd_et_width"
+                    android:layout_height="@dimen/forget_pwd_et_height"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/forget_pwd_hint_new_pwd"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/forget_pwd_et_paddingLeft" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/change_pass_word_again_new_pass_word"
+                    android:layout_width="@dimen/forget_pwd_et_width"
+                    android:layout_height="@dimen/forget_pwd_et_height"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/forget_pwd_hint_again_pwd"
+                    android:paddingLeft="@dimen/forget_pwd_et_paddingLeft" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:padding="@dimen/forget_pwd_btn_submit_ll_padding" >
+
+            <Button
+                android:id="@+id/change_pass_word_send_change"
+                android:layout_width="@dimen/forget_pwd_btn_submit_width"
+                android:layout_height="@dimen/forget_pwd_btn_submit_height"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_login_button"
+                android:text="@string/forget_pwd_btn_submit"
+                android:textColor="@color/forget_pwd_btn_tv"
+                android:textSize="@dimen/forget_pwd_btn_submit_tv"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/change_phone_marginBottom"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title">
+
+        <TextView
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/title_change_phone" />
+
+        <TextView
+            android:id="@+id/change_phone_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/back_e"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/change_phone_ll_marginTop"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/change_phone_ll_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/old_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/change_pwd_et_height"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/change_phone_number_hint"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/change_phone_et_paddingLeft" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/old_phone_code"
+                    android:layout_width="@dimen/change_phone_et_width"
+                    android:layout_height="@dimen/change_phone_et_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/change_phone_verification_code_hint"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/change_phone_et_paddingLeft" />
+
+                <Button
+                    android:id="@+id/get_old_phone_code"
+                    android:layout_width="@dimen/change_phone_verification_code_btn_width"
+                    android:layout_height="@dimen/change_phone_verification_code_btn_height"
+                    android:layout_marginLeft="@dimen/change_phone_verification_code_btn_marginLeft"
+                    android:background="@drawable/selector_get_code"
+                    android:text="@string/change_phone_verification_code_btn_text"
+                    android:textColor="@color/change_phone_btn_text"
+                    android:textSize="@dimen/change_phone_btn_text"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.xunman.yibenjiapu.customview.DeletableEditText
+                    android:id="@+id/new_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/change_pwd_et_height"
+                    android:background="@drawable/selector_edittext_account"
+                    android:hint="@string/change_phone_number_new_hint"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/change_phone_et_paddingLeft" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/change_phone_submit_ll_padding">
+
+            <Button
+                android:id="@+id/send_new_phone"
+                android:layout_width="@dimen/change_phone_submit_sure_width"
+                android:layout_height="@dimen/change_phone_submit_sure_height"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_login_button"
+                android:text="确认修改"
+                android:textColor="@color/change_phone_btn_text"
+                android:textSize="@dimen/change_phone_btn_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,144 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">5.0dip</dimen>
+    <dimen name="bottom_tab_font_size">10.0dip</dimen>
+
+    <dimen name="view_small_padding">1dp</dimen>
+    <dimen name="view_padding">6dp</dimen>
+
+    <dimen name="body_padding_medium">10dp</dimen>
+    <dimen name="body_padding_large">10dp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">18sp</dimen>
+    <dimen name="speaker_image_size">36dp</dimen>
+    <dimen name="speaker_image_padding">8dp</dimen>
+    <dimen name="vendor_image_size">100dp</dimen>
+
+    <dimen name="actionbar_height">48dip</dimen>
+    <dimen name="actionbar_item_height">48dip</dimen>
+    <dimen name="actionbar_item_width">48dip</dimen>
+
+    <dimen name="activity_zero_margin">0dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="slidingmenu_offset">150dip</dimen>
+
+    <item type="dimen" format="float" name="menuFromDegrees">180.0</item>
+    <item type="dimen" format="float" name="menuToDegrees">360.0</item>
+    <dimen name="menuChildSize">25dp</dimen>
+
+    <!--3/7新增-->
+    <!--通用标题栏-->
+    <dimen name="title_height">40dp</dimen>
+    <dimen name="title_marginBottom">20dp</dimen>
+    <!--通用标题栏左侧返回图标-->
+    <dimen name="back_width">24dp</dimen>
+    <dimen name="back_height">24dp</dimen>
+    <dimen name="back_marginLeft">16dp</dimen>
+    <!--添加用户基本信息页面-->
+    <dimen name="add_user_info_marginLeft">20dp</dimen>
+    <dimen name="add_user_info_marginRight">20dp</dimen>
+    <dimen name="add_user_info_radiogroup_paddingLeft">40dp</dimen>
+    <dimen name="add_user_info_radiogroup_paddingRight">40dp</dimen>
+    <dimen name="btn_add_user_info_submit_width">202dp</dimen>
+    <dimen name="btn_add_user_info_submit_height">40dp</dimen>
+    <!--家谱组件页面-->
+    <dimen name="btn_new_build_width">200dp</dimen>
+    <dimen name="btn_new_build_margintop">18dp</dimen>
+    <dimen name="text_new_build">22sp</dimen>
+    <!--修改密码页面-->
+    <dimen name="change_pwd_marginTop">20dp</dimen>
+    <dimen name="change_pwd_padding">20dp</dimen>
+    <dimen name="change_pwd_et_width">0dp</dimen>
+    <dimen name="change_pwd_et_height">40dp</dimen>
+    <dimen name="change_pwd_et_paddingLeft">5dp</dimen>
+    <dimen name="change_pwd_verification_code_btn_width">141dp</dimen>
+    <dimen name="change_pwd_verification_code_btn_heigh">45dp</dimen>
+    <dimen name="change_pwd_verification_code_btn_marginLeft">10dp</dimen>
+    <dimen name="change_pwd_verification_code_btn_text">18sp</dimen>
+    <dimen name="change_pwd_submit_ll_padding">20dp</dimen>
+    <dimen name="change_pwd_submit_sure_width">182dp</dimen>
+    <dimen name="change_pwd_submit_sure_height">45dp</dimen>
+    <!--手机号修改页面-->
+    <dimen name="change_phone_marginBottom">10dp</dimen>
+    <dimen name="change_phone_ll_marginTop">20dp</dimen>
+    <dimen name="change_phone_ll_padding">20dp</dimen>
+    <dimen name="change_phone_et_width">0dp</dimen>
+    <dimen name="change_phone_et_height">40dp</dimen>
+    <dimen name="change_phone_et_paddingLeft">3dp</dimen>
+    <dimen name="change_phone_btn_text">18sp</dimen>
+    <dimen name="change_phone_verification_code_btn_width">141dp</dimen>
+    <dimen name="change_phone_verification_code_btn_height">45dp</dimen>
+    <dimen name="change_phone_verification_code_btn_marginLeft">10dp</dimen>
+    <dimen name="change_phone_submit_ll_padding">20dp</dimen>
+    <dimen name="change_phone_submit_sure_width">181dp</dimen>
+    <dimen name="change_phone_submit_sure_height">45dp</dimen>
+    <!--修改用户名页面-->
+    <dimen name="change_user_name_et_marginTop">30dp</dimen>
+    <dimen name="change_user_name_et_marginRight">10dp</dimen>
+    <dimen name="change_user_name_et_marginLeft">10dp</dimen>
+    <dimen name="change_user_name_et_hint">14sp</dimen>
+    <dimen name="change_user_name_height">1dp</dimen>
+    <dimen name="change_user_name_marginRight">10dp</dimen>
+    <dimen name="change_user_name_marginLeft">10dp</dimen>
+    <dimen name="change_user_name_reminder_marginTop">10dp</dimen>
+    <dimen name="change_user_name_reminder_marginRight">10dp</dimen>
+    <dimen name="change_user_name_reminder_marginLeft">10dp</dimen>
+    <dimen name="change_user_name_btn_sure_marginTop">20dp</dimen>
+    <dimen name="change_user_name_btn_sure_marginRight">10dp</dimen>
+    <dimen name="change_user_name_btn_sure_marginLeft">10dp</dimen>
+    <!--设置页面-->
+    <dimen name="setting_ll_padding">16dp</dimen>
+    <dimen name="setting_text_paddingBottom">8dp</dimen>
+    <dimen name="setting_text_paddingTop">8dp</dimen>
+    <dimen name="setting_view_height">1px</dimen>
+    <dimen name="setting_btn_login_ll_padding">16dp</dimen>
+    <dimen name="setting_btn_login_height">44dp</dimen>
+    <!--详细信息和我的信息页面-->
+    <dimen name="details_rl_avatar_height">80dp</dimen>
+    <dimen name="details_rl_height">60dp</dimen>
+    <dimen name="details_rl_padding">10dp</dimen>
+    <dimen name="details_avatar_width">80dp</dimen>
+    <dimen name="details_avatar_height">80dp</dimen>
+    <!--忘记密码页面-->
+    <dimen name="forget_pwd_ll_marginTop">20dp</dimen>
+    <dimen name="forget_pwd_ll_padding">20dp</dimen>
+    <dimen name="forget_pwd_et_paddingLeft">3dp</dimen>
+    <dimen name="forget_pwd_et_width">0dp</dimen>
+    <dimen name="forget_pwd_et_height">40dp</dimen>
+    <dimen name="forget_pwd_btn_get_code_marginLeft">10dp</dimen>
+    <dimen name="forget_pwd_btn_get_code_width">141dp</dimen>
+    <dimen name="forget_pwd_btn_get_code_height">45dp</dimen>
+    <dimen name="forget_pwd_btn_get_code_tv">18sp</dimen>
+    <dimen name="forget_pwd_btn_submit_ll_padding">20dp</dimen>
+    <dimen name="forget_pwd_btn_submit_width">182dp</dimen>
+    <dimen name="forget_pwd_btn_submit_height">45dp</dimen>
+    <dimen name="forget_pwd_btn_submit_tv">18sp</dimen>
+    <!--帮助中心-->
+    <dimen name="help_center_ll_padding">16dp</dimen>
+    <dimen name="help_center_item_tv_marginTop">5dp</dimen>
+    <dimen name="help_center_item_tv_marginBottom">5dp</dimen>
+    <dimen name="help_center_line_height">1dp</dimen>
+    <dimen name="help_center_item_marginTop">5dp</dimen>
+    <dimen name="help_center_item_marginBottom">5dp</dimen>
+    <dimen name="help_center_item_paddingTop">8dp</dimen>
+    <dimen name="help_center_item_paddingBottom">8dp</dimen>
+    <!--主页item详细页面-->
+    <dimen name="item_main_iv_width">41dp</dimen>
+    <dimen name="item_main_iv_height">48dp</dimen>
+    <dimen name="item_main_video_height">170dp</dimen>
+    <dimen name="item_main_video_progressbar_width">50dp</dimen>
+    <dimen name="item_main_video_progressbar_height">50dp</dimen>
+    <dimen name="item_main_name_origin_title_height">20dp</dimen>
+    <dimen name="item_main_name_origin_title_iv_height">18dp</dimen>
+    <dimen name="item_main_name_origin_title_iv_width">18dp</dimen>
+    <dimen name="item_main_name_origin_title_iv_marginLeft">10dp</dimen>
+    <dimen name="item_main_name_origin_title_tv_marginLeft">5dp</dimen>
+
+</resources>

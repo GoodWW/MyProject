@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'YiBenJiaPu'
+            keyPassword 'zrw911113'
+            storeFile file('D:/YiBenJiaPu.store')
+            storePassword 'zrw911113'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.xunman.yibenjiapu.ui"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/fastjson-1.1.36.jar')
+    compile files('libs/okio-1.11.0.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    //AVLoadingIndicatorView动画效果配置
+    compile 'com.wang.avi:library:1.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile files('libs/autobahn-0.5.0.jar')
+    //QQ第三方登陆所需jar
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5781.jar')
+    //引用glide图片加载库
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //添加腾讯bugly远程库
+    // 其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //微信jar
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    compile files('libs/android-support-v7-recyclerview.jar')
+}

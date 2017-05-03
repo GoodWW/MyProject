@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/title_help_center" />
+        <TextView
+            android:id="@+id/activity_help_center_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/help_center_ll_padding">
+        <TextView
+            android:layout_marginTop="@dimen/help_center_item_tv_marginTop"
+            android:layout_marginBottom="@dimen/help_center_item_tv_marginBottom"
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_center_tv" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/help_center_line_height"
+            android:background="@color/help_center_line" />
+            <TextView
+                android:layout_marginTop="@dimen/help_center_item_marginTop"
+                android:layout_marginBottom="@dimen/help_center_item_marginBottom"
+                style="@style/TextTheme_tipstheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/help_center_item_paddingBottom"
+                android:paddingTop="@dimen/help_center_item_paddingTop"
+                android:text="@string/help_center_item1_tv" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/help_center_line_height"
+            android:background="@color/help_center_line" />
+            <TextView
+                android:layout_marginTop="@dimen/help_center_item_marginTop"
+                android:layout_marginBottom="@dimen/help_center_item_marginBottom"
+                style="@style/TextTheme_tipstheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/help_center_item_paddingBottom"
+                android:paddingTop="@dimen/help_center_item_paddingTop"
+                android:text="@string/help_center_item2_tv" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/help_center_line_height"
+            android:background="@color/help_center_line" />
+            <TextView
+                android:layout_marginTop="@dimen/help_center_item_marginTop"
+                android:layout_marginBottom="@dimen/help_center_item_marginBottom"
+                style="@style/TextTheme_tipstheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/help_center_item_paddingBottom"
+                android:paddingTop="@dimen/help_center_item_paddingTop"
+                android:text="@string/help_center_item3_tv" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/help_center_line_height"
+            android:background="@color/help_center_line" />
+    </LinearLayout>
+
+</LinearLayout>

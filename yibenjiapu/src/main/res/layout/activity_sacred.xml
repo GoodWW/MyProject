@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/sacred_background"
+    android:baselineAligned="false">
+    <!-- 顶部-->
+    <RelativeLayout
+        android:id="@+id/rl_top_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgv_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/defult1"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            />
+        <ImageView
+            android:id="@+id/imgv_left_headphoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgv_banner"
+            android:src="@mipmap/defult1"
+            android:layout_marginLeft="90dp"
+            />
+        <ImageView
+            android:id="@+id/imgv_right_headphoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgv_banner"
+            android:src="@mipmap/defult1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="90dp"
+            />
+
+
+    </RelativeLayout>
+    <!--牌位 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/rl_spirit_tablets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgv_spirit_tablet1"
+            android:src="@mipmap/spirit_tablet"
+            android:layout_gravity="center"/>
+        <View
+            android:layout_below="@+id/imgv_spirit_tablet1"
+            android:background="#802A2A"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet2"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="95dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet3"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="50dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet4"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:background="#802A2A"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet5"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="55dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet6"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="50dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet7"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="50dp"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgv_spirit_tablet8"
+                android:src="@mipmap/spirit_tablet"
+                android:layout_marginLeft="45dp"/>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="330dp"
+            android:layout_height="5dp"
+            android:background="#802A2A"
+            android:layout_gravity="center"
+            />
+
+
+
+
+
+    </LinearLayout>
+    <!-- 贡品-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+
+
+
+    </RelativeLayout>
+    <!-- 底部贡品操作-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        >
+        <ImageView
+            android:id="@+id/imgv_incense"
+            android:layout_width="85dp"
+            android:layout_height="125dp"
+            android:src="@mipmap/incense_up"
+            android:layout_alignParentLeft="true"
+
+            />
+        <ImageView
+            android:id="@+id/imgv_present_flower"
+            android:layout_width="85dp"
+            android:layout_height="125dp"
+            android:src="@mipmap/present_flower_up"
+            android:layout_toRightOf="@+id/imgv_incense"/>
+        <ImageView
+            android:id="@+id/imgv_tribute"
+            android:layout_toRightOf="@+id/imgv_present_flower"
+            android:layout_width="85dp"
+            android:layout_height="125dp"
+            android:src="@mipmap/tribute_up"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/message_board"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

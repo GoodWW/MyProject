@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp">
+    <ImageView
+        android:id="@+id/iv_commodity_pic"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/commodity" />
+    <TextView
+        android:id="@+id/tv_commodity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_commodity_pic"
+        android:text="商品名称"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_commodity_pic"
+        android:layout_below="@+id/tv_commodity_title"
+        android:text="商品介绍商品介绍商品介绍商品介绍"
+        android:textSize="14sp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_commodity_pic"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200"
+            android:textSize="12sp"
+            android:textColor="#ff0000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="积分 + ￥" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="30"
+            android:textColor="#ff0000" />
+    </LinearLayout>
+</RelativeLayout>

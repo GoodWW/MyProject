@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#fff</color>
+
+    <!--3/7新增-->
+    <!--通用标题栏-->
+    <color name="bg_title">#e7ddca</color>
+    <!--添加用户基本信息页面-->
+    <color name="add_user_info_text">#000</color>
+    <!--修改密码页面-->
+    <color name="change_pwd_btn_text">#fff</color>
+    <!--更改手机号页面-->
+    <color name="change_phone_btn_text">#fff</color>
+    <!--设置页面-->
+    <color name="setting_view">#eeeeee</color>
+    <!--忘记密码页面-->
+    <color name="forget_pwd_btn_tv">#fff</color>
+    <!--帮助中心-->
+    <color name="help_center_line">#eeeeee</color>
+    <!--主页item详细信息-->
+    <color name="item_main_video_tv">#ffffff</color>
+</resources>

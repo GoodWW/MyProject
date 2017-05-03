@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xunman.yibenjiapu.ui"
+    android:installLocation="auto"
+    android:revisionCode="1"
+    android:versionName="1.0"> <!--设置android当前版本号和版本名-->
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="18" />
+
+    <!-- QQ登录授权所需权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- SMSSDK need -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- bmob permission -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许应用打开网络套接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许应用访问网络上的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <!-- renren sso Permission for Unit Test -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.xunman.yibenjiapu.application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/NoActionBar">
+        <activity
+            android:name=".FirstActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--引导界面-->
+        <activity
+            android:name=".GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTheme" />
+        <!--登陆状态修改密码-->
+        <activity
+            android:name=".LoginChPaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".MyPrizeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".MyIntegralActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".HelpCenterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".ViewBackActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".RigistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".AddInformationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ChangePassWordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--变更手机号-->
+        <activity
+            android:name=".ChangePhoneActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--功能介绍-->
+        <activity
+            android:name=".FunctionIntroductionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".ItemInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".ItemActionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--祭祀页面-->
+        <!--组建页面-->
+        <activity
+            android:name=".BuildJiaPuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--新建页面-->
+        <activity
+            android:name=".NewBuildActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--爸爸的兄弟页面-->
+        <!--忘记密码页面-->
+        <activity
+            android:name=".ForgetPassWordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--修改后的姓氏详情页面-->
+        <!--站内信-->
+        <activity
+            android:name=".StationLetterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--详细资料-->
+        <activity
+            android:name=".DetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <!--家谱树页面-->
+        <activity
+            android:name=".JiaPuTreeTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"/>
+        <activity
+            android:name=".JiaPuTreeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"/>
+        <!--添加亲戚基本信息页面-->
+        <activity
+            android:name=".AddInformationRelativeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--我的资料页面-->
+        <activity
+            android:name=".MyDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--客服activi页面-->
+        <activity
+            android:name=".ServiceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--更改昵称页面-->
+        <activity
+            android:name=".ChangeUsernameActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--QQ登陆用户基本信息-->
+        <activity
+            android:name=".AddInformationQQActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--我的资料点击头像放大-->
+        <activity
+            android:name=".ImageShower"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--首页viewpager跳转webview-->
+        <activity
+            android:name=".ViewpagerWebviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--姓氏动态列表页面-->
+        <activity
+            android:name=".SurnameCradleintrActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--姓氏详情页面-->
+        <activity
+            android:name=".TrendsDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--积分兑换记录列表页面-->
+        <activity
+            android:name=".ConvertRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--商品详情页面-->
+        <activity
+            android:name=".CommodityDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--选择籍贯页面-->
+        <activity
+            android:name=".ShowRegionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--姓氏动态页面-->
+        <!--姓氏动态页面3.31修改，上面item不用listview-->
+        <activity
+            android:name=".ItemMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" />
+        <!--我的会员页面-->
+        <activity
+            android:name=".MyVipActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <!--资讯发布页面-->
+        <activity
+            android:name=".InformationReleaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <!--点亮活动首页页面-->
+        <activity
+            android:name=".ActionLightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <!--点亮活动服务页面-->
+        <activity
+            android:name=".ServiceLightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
+        <!-- QQ注册SDKActivity -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106011644" /> <!-- 开放平台获取的APPID -->
+            </intent-filter>
+        </activity>
+        <service android:name="com.xunman.yibenjiapu.service.WebSocketService"></service>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.xunman.yibenjiapu.mypackage.MyGlideModule"
+            android:value="GlideModule" />
+    </application>
+</manifest>

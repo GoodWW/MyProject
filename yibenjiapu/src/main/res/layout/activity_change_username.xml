@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title" >
+        <TextView
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/title_change_user_name" />
+        <TextView
+            android:id="@+id/tv_details_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/back"
+        >
+        <EditText
+            android:id="@+id/et_change_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/change_user_name_et_marginTop"
+            android:layout_marginRight="@dimen/change_user_name_et_marginRight"
+            android:layout_marginLeft="@dimen/change_user_name_et_marginLeft"
+            android:background="@null"
+            android:textSize="@dimen/change_user_name_et_hint"
+            android:hint="@string/change_user_name_hint"/>
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/change_user_name_height"
+            android:layout_marginRight="@dimen/change_user_name_marginRight"
+            android:layout_marginLeft="@dimen/change_user_name_marginLeft"
+            android:background="@color/bg_title"
+            android:id="@+id/tv_line" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/change_user_name_reminder_marginTop"
+            android:layout_marginRight="@dimen/change_user_name_reminder_marginRight"
+            android:layout_marginLeft="@dimen/change_user_name_reminder_marginLeft"
+            android:text="@string/change_user_name_reminder"/>
+        <Button
+            android:id="@+id/btn_sure_change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/change_user_name_btn_sure_marginTop"
+            android:layout_marginRight="@dimen/change_user_name_btn_sure_marginRight"
+            android:layout_marginLeft="@dimen/change_user_name_btn_sure_marginLeft"
+            android:text="@string/change_user_name_btn_sure"
+            android:background="@color/bg_title"/>
+    </LinearLayout>
+
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/change_user_name_et_marginTop"-->
+        <!--android:layout_marginRight="@dimen/change_user_name_et_marginRight"-->
+        <!--android:layout_marginLeft="@dimen/change_user_name_et_marginLeft"-->
+        <!--android:text="@string/change_user_name_hint"-->
+        <!--android:textSize="@dimen/change_user_name_et_hint"-->
+        <!--android:id="@+id/et_change_username" />-->
+
+</LinearLayout>

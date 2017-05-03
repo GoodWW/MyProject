@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@mipmap/homepage_top_bg"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <TextView
+            android:id="@+id/fg_main_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_main"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <!--修改mainfragment中下拉刷新控件-->
+    <FrameLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/back"
+        >
+        <com.xunman.yibenjiapu.customview.RefreshListView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/lv"/>
+    </FrameLayout>
+
+</LinearLayout>

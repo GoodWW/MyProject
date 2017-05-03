@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--姓氏动态列表item-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_trends_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="动态标题动态标题"
+            android:maxLines="1"
+            android:maxEms="8"
+            android:ellipsize="end"
+            android:textColor="#253652"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tv_publish_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:layout_alignParentRight="true"
+            android:text="2017-03-21 12:07:48"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tv_trends_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/tv_trends_name"
+            android:text="@string/item_main_item_abstract"
+            android:textColor="#000"
+            android:textSize="12sp" />
+</RelativeLayout>
