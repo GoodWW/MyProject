@@ -292,6 +292,12 @@
         <!--图片展示页-->
         <activity android:name=".PhotoActivity" >
         </activity>
+        <!--论坛详情页面-->
+        <activity
+            android:name=".InformationDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
 
         <!-- QQ注册SDKActivity -->
         <activity

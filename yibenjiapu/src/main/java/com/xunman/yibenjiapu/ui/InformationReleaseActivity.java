@@ -55,6 +55,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     private ExpressionGridView expressionGridview;
     private RelativeLayout rl_test;
     //放置图片GridView
+    private RelativeLayout rlPicture;
     private GridAdapter mAdapter;
     private NoScrollGridView mGridView;
     public static String mImagePath;
@@ -77,7 +78,9 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         expressionTextInput = (EditText) findViewById(R.id.et_information_input);
         expressionGridview = (ExpressionGridView) findViewById(R.id.expression_gridview);
         rl_test = (RelativeLayout) findViewById(R.id.rl_test);
+        rlPicture = (RelativeLayout) findViewById(R.id.rl_picture);
 
+        rlPicture.setOnClickListener(this);
         mAdapter = new GridAdapter(this);
         mAdapter.update();
         mGridView = (NoScrollGridView) findViewById(R.id.gv_gridview);
@@ -227,6 +230,13 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
                     rl_test.setVisibility(View.VISIBLE);
                 }else if(rl_test.getVisibility() == View.VISIBLE){
                     rl_test.setVisibility(View.GONE);
+                }
+                break;
+            case R.id.rl_picture:
+                if(mGridView.getVisibility() == View.GONE){
+                    mGridView.setVisibility(View.VISIBLE);
+                }else if(mGridView.getVisibility() == View.VISIBLE){
+                    mGridView.setVisibility(View.GONE);
                 }
                 break;
         }
