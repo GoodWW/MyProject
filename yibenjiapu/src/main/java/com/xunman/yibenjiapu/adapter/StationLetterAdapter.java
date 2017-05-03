@@ -41,7 +41,6 @@ public class StationLetterAdapter extends BaseAdapter{
 //        return letterInfos.get(i);
         return i;
     }
-
     @Override
     public long getItemId(int i) {
         return i;
