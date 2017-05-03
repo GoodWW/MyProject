@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="省/市："
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textColor="#838080"/>
         <RelativeLayout
             android:id="@+id/rl_select"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="小区："
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textColor="#838080"/>
         <EditText
             android:id="@+id/et_community"
@@ -118,7 +118,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:textSize="9sp"
+        android:textSize="11sp"
         android:text="规则\n1、如果您的小区已经点亮，您就可以直接申请爱老服务\n2、如果您的小区没被点亮，您可以点亮自己的小区，只要您所在的小区被点亮相应的次数，我们将会在您的小区尽可能的在规定的时间内建立服务点\n3、一个用户只能对一个小区点亮一次\n4、若您输入的小区名称未被搜索到，您可以根据提示手动添加自己的小区然后点亮"/>
     <ImageView
         android:layout_below="@+id/tv_rule"

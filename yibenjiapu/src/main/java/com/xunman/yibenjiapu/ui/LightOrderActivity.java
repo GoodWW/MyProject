@@ -4,72 +4,46 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xunman.yibenjiapu.application.BaseApplication;
 
-import org.w3c.dom.Text;
-
-/**
- * 项目名： MyProject
- * 创建者： lwk
- * 创建时间：  2017/5/2 =
- * 包名：com.xunman.yibenjiapu.ui
- * 文件名： ${name}
- * 描述：  点亮服务页面
- */
-public class ServiceLightActivity extends AppCompatActivity implements View.OnClickListener {
-    private Intent intent;
-    private TextView tvLightServiceBack;
+public class LightOrderActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextView tvLightOrderBack;
     //选择省市
     private TextView tvSelect;
     private int requestCode = 101;//请求码
-    //点亮按钮
-    private TextView tvLight;
-    //判断加载哪个界面
-    //private
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light_service1);
+        setContentView(R.layout.activity_order_light);
         intent = getIntent();
         intiView();
         BaseApplication.list.add(this);
     }
 
     private void intiView() {
-        tvLightServiceBack = (TextView) findViewById(R.id.tv_light_service_back);
-        tvLightServiceBack.setOnClickListener(this);
-
+        tvLightOrderBack = (TextView) findViewById(R.id.tv_light_order_back);
+        tvLightOrderBack.setOnClickListener(this);
         tvSelect = (TextView) findViewById(R.id.tv_select);
         tvSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ServiceLightActivity.this, ShowRegionActivity.class);
+                intent.setClass(LightOrderActivity.this, ShowRegionActivity.class);
                 intent.putExtra("address", "address");
                 startActivityForResult(intent, requestCode);
             }
         });
-
-        tvLight = (TextView) findViewById(R.id.tv_light);
-        tvLight.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.tv_light_service_back:
+            case R.id.tv_light_order_back:
                 finish();
-                break;
-            case R.id.tv_light:
-                if(tvLight.getText().equals("点亮")){
-
-                }else if(tvLight.getText().equals("预约服务")){
-                    intent.setClass(ServiceLightActivity.this,LightOrderActivity.class);
-                    startActivity(intent);
-                }
                 break;
         }
     }

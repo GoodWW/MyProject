@@ -274,6 +274,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" >
         </activity>
+        <!--点亮活动预约服务页面-->
+        <activity
+            android:name=".LightOrderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar" >
+        </activity>
         <!-- QQ注册SDKActivity -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
