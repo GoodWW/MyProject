@@ -26,7 +26,7 @@ import com.xunman.yibenjiapu.utils.ShareUtils;
 /**
  * Created by lwk on 2017/3/17
  * <p>
- * 描述    资讯界面WebView
+ * 描述    资讯界面WebView    不再用了
  */
 
 public class InformationFragmentTest extends Fragment implements View.OnClickListener{

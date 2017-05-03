@@ -256,12 +256,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" >
         </activity>
-        <!--资讯发布页面-->
-        <activity
-            android:name=".InformationReleaseActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar" >
-        </activity>
         <!--点亮活动首页页面-->
         <activity
             android:name=".ActionLightActivity"
@@ -280,6 +274,25 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" >
         </activity>
+        <!--资讯发布页面-->
+        <activity
+            android:name=".InformationReleaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:launchMode="singleTask">
+        </activity>
+        <!--相册展示页-->
+        <activity android:name=".ImageGridActivity" >
+        </activity>
+        <!--选择相册页-->
+        <activity
+            android:name=".TestPicActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+        <!--图片展示页-->
+        <activity android:name=".PhotoActivity" >
+        </activity>
+
         <!-- QQ注册SDKActivity -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

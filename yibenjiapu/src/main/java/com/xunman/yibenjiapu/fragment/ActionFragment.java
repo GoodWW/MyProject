@@ -27,7 +27,7 @@ import com.xunman.yibenjiapu.utils.JavaScriptinterface;
  * 创建时间：  2017/4/10 0010 13:31
  * 包名：com.xunman.yibenjiapu.ui
  * 文件名： ${name}
- * 描述：  活动界面加载webview
+ * 描述：  活动界面加载webview   不再用了
  */
 
 public class ActionFragment extends Fragment implements View.OnClickListener{

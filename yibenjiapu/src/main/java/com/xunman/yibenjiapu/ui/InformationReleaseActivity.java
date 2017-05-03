@@ -2,23 +2,34 @@ package com.xunman.yibenjiapu.ui;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.xunman.yibenjiapu.adapter.GridAdapter;
 import com.xunman.yibenjiapu.application.BaseApplication;
 import com.xunman.yibenjiapu.mode.ExpressionMode;
+import com.xunman.yibenjiapu.utils.Bimp;
+import com.xunman.yibenjiapu.utils.FileUtils;
+import com.xunman.yibenjiapu.utils.MyPopupWindow;
+import com.xunman.yibenjiapu.utils.SystemUtils;
+import com.xunman.yibenjiapu.utils.ToastUtil;
 import com.xunman.yibenjiapu.view.ExpressionGridView;
 import com.xunman.yibenjiapu.view.Expressions;
+import com.xunman.yibenjiapu.view.NoScrollGridView;
 
-import org.w3c.dom.Text;
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +54,12 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     private EditText expressionTextInput;
     private ExpressionGridView expressionGridview;
     private RelativeLayout rl_test;
+    //放置图片GridView
+    private GridAdapter mAdapter;
+    private NoScrollGridView mGridView;
+    public static String mImagePath;
+    private static final int TAKE_PICTURE = 0x000000;
+    private String mImageFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +78,35 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         expressionGridview = (ExpressionGridView) findViewById(R.id.expression_gridview);
         rl_test = (RelativeLayout) findViewById(R.id.rl_test);
 
+        mAdapter = new GridAdapter(this);
+        mAdapter.update();
+        mGridView = (NoScrollGridView) findViewById(R.id.gv_gridview);
+        mGridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        mGridView.setAdapter(mAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                if (arg2 == Bimp.mBmps.size()) {
+                    showPopupWindow();
+                } else {
+                    Intent intent = new Intent(InformationReleaseActivity.this, PhotoActivity.class);
+                    intent.putExtra("ID", arg2);
+                    startActivity(intent);
+                }
+            }
+        });
+
         information_release_back.setFocusable(true);
         information_release_back.setFocusableInTouchMode(true);
         information_release_back.requestFocus();
 
         information_release_back.setOnClickListener(this);
         rlInformationIconFace.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onRestart() {
+        mAdapter.update();
+        super.onRestart();
     }
 
     /**
@@ -118,10 +158,68 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         return super.onOptionsItemSelected(item);
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            // 拍照
+            if(requestCode == TAKE_PICTURE){
+                if (Bimp.mDrr.size() < 9 && resultCode == -1) {
+                    File file = new File(Environment.getExternalStorageDirectory() + "/" + mImageFileName);
+                    mImagePath = file.getPath();
+                    Bimp.mDrr.add(mImagePath);
+                }
+            }
+        }
+    }
+
+    /** 拍照 */
+    public void photo() {
+        // 随机缓存照片名
+        mImageFileName = FileUtils.getFileNameForSystemTime(".jpg");
+        // 首先判断SD卡是否存在
+        if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(),mImageFileName)));
+            startActivityForResult(intent, TAKE_PICTURE);
+        }else{
+            ToastUtil.t(this,"内存卡不存在");
+        }
+    }
+
+    private void showPopupWindow() {
+        isKeyboardShownToHideKeyboard();
+        MyPopupWindow popupWindow = new MyPopupWindow(this);
+        String[] str = {"拍照","从相册中选择"};
+        popupWindow.showPopupWindowForFoot(str, new MyPopupWindow.Callback() {
+            @Override
+            public void callback(String text, int position) {
+                switch (position) {
+                    case 0:
+                        photo();
+                        break;
+                    case 1:
+                        Intent intent = new Intent(InformationReleaseActivity.this, TestPicActivity.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
+    }
+
+    /** 判断软键盘是否弹起如弹起则隐藏 */
+    private void isKeyboardShownToHideKeyboard(){
+        if(SystemUtils.isKeyboardShown(expressionTextInput.getRootView())){
+            SystemUtils.hideKeyboard(this, expressionTextInput.getApplicationWindowToken());
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.information_release_back:
+                FileUtils.deleteDir();
+                Bimp.mBmps.clear();
+                Bimp.mDrr.clear();
+                Bimp.mMax = 0;
                 finish();
                 break;
             case R.id.rl_information_icon_face:
