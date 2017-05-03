@@ -10,7 +10,6 @@ import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -71,10 +70,14 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
     private AdvertisementInfoNew advertisementInfoNew;
     private int isLoad = 0;
     private View contentView = null;
+    private HeadView headView;
+    private int int_ad = 0;
     //    private SurnameList1.ContentsBean contentsBean ;
     private Surname_Info sum;
 //    // 定位item按钮
 //    private TextView tvMainItemLocation;
+private Handler handler_family_and_name;
+    private Handler handler_ad;
 
 
     public static Fragment instance() {
@@ -91,25 +94,16 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
         intent = getActivity().getIntent();
 
         extras = intent.getExtras();
-        String str2 = ShareUtils.getString(getActivity(), "surname_info", "");
-        sum = JSON.toJavaObject(JSON.parseObject(str2), Surname_Info.class);
-        //取得姓氏列表返回数据
-        String str = extras.getString("surnameintr", "4321");
-        LogUtils.e("返回str", str);
-        surnameList1 = JSON.parseObject(str, SurnameList1.class);
         list = new ArrayList<>();
         lists = new ArrayList<>();
-        lists.addAll(surnameList1.getContents());
 
-        //取得广告位的返回信息
-        String str1 = extras.getString("AdvertisementInfo", "1234");
-        Log.e("返回str1", str1);
-//        advertisementInfo = JSON.parseObject(str1, AdvertisementInfo.class);
-        advertisementInfoNew = JSON.parseObject(str1, AdvertisementInfoNew.class);
         adList = new ArrayList<>();
         adLists = new ArrayList<>();
-//        adLists.addAll(advertisementInfo.getContents());
-        adLists.addAll(advertisementInfoNew.getContents());
+        getNameDate();
+        if (int_ad==0){
+            getAdDate();
+            int_ad =1;
+        }
     }
 
     String strSB;
@@ -124,13 +118,11 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
         }else{
             return contentView;
         }
-//        View view;
-//        view = inflater.inflate(R.layout.fragment_main_for_viewpager, container, false);
 
         lv = (RefreshListView) contentView.findViewById(R.id.lv);
         lv.setInterface(this);
         showListView(lv);
-        lv.addHeaderView(new HeadView(getActivity()));
+
         LogUtils.e("返回adapter", "adapter" + adapter);
         lv.setAdapter(adapter);
 
@@ -343,6 +335,7 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
 
     private Handler handler_addMore;
 
+
     /**
      * 加载更多代码
      */
@@ -392,6 +385,51 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
         }
     }
 
+    private String str_name;
+    public void getNameDate() {
+        //获取网络数据,姓氏数据
+        handler_family_and_name = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what == 0x123) {
+                    str_name = msg.obj.toString();
+                    LogUtils.e("首页初次获取姓氏数据===", str_name);
+                    surnameList1 = JSON.parseObject(str_name, SurnameList1.class);
+                    lists.addAll(surnameList1.getContents());
+                    adapter.onDateChange(lists);
+                }
+            }
+        };
+        Map<String, Object> map = new HashMap<>();
+        map.put("start", 1);
+        map.put("number", 15);
+        map.put("sort", "sort");
+        map.put("key", "number");
+        new HttpImplStringTest(map, "SelectSurname.xml", handler_family_and_name, "POST").start();
+    }
+    private String str_ad;
+    public void getAdDate() {
+        //获取网络数据,广告数据
+        handler_ad = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what == 0x123) {
+                    str_ad = msg.obj.toString();
+                    LogUtils.e("首页获取广告数据==", str_ad);
+                    advertisementInfoNew = JSON.parseObject(str_ad, AdvertisementInfoNew.class);
+                    adLists.addAll(advertisementInfoNew.getContents());
+                    headView = new HeadView(getActivity());
+                    lv.addHeaderView(headView);
+                }
+            }
+        };
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("start", 1);
+        map2.put("number", 3);
+        map2.put("time", null);
+        new HttpImplStringTest(map2, "SelectAdvertisementList.xml", handler_ad, "GET").start();
+    }
+
     /**
      * 自定义顶部Viewpager
      */
@@ -420,7 +458,7 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
                 Glide.with(mContext)
                         .load(adLists.get(i).getImageurl())//   .load(PathUrl + advertisementInfo.getContents().get(i).getImageurl())
 //                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)//是将图片原尺寸缓存到本地。
-//                        .placeholder(R.mipmap.logo_logo)
+                        .placeholder(R.mipmap.logo_logo)
 //                        .crossFade()
                         .into(imageView);
                 linDots.addView(dotsItem(i));

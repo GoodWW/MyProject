@@ -1,6 +1,5 @@
 package com.xunman.yibenjiapu.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,10 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xunman.yibenjiapu.application.BaseApplication;
-import com.xunman.yibenjiapu.fragment.ActionFragment;
 import com.xunman.yibenjiapu.fragment.ActionFragmentTest;
 import com.xunman.yibenjiapu.fragment.InformationFragment;
-import com.xunman.yibenjiapu.fragment.InformationFragmentTest;
 import com.xunman.yibenjiapu.fragment.MainFragmentTestForViewpager;
 import com.xunman.yibenjiapu.fragment.MyselfFragment2;
 import com.xunman.yibenjiapu.fragment.ServiceFragment;
