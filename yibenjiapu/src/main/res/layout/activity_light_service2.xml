@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="省/市："
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textColor="#838080"/>
         <RelativeLayout
             android:id="@+id/rl_select"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="小区："
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textColor="#838080"/>
         <EditText
             android:id="@+id/et_community"

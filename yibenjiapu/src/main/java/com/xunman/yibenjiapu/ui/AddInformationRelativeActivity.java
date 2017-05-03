@@ -108,7 +108,7 @@ public class AddInformationRelativeActivity extends AppCompatActivity implements
         add_native_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AddInformationRelativeActivity.this,ShowRegionActivity.class);
+                intent.setClass(AddInformationRelativeActivity.this,ShowRegionActivity.class);
                 intent.putExtra("address","address");
                 startActivityForResult(intent,requestCode);
             }

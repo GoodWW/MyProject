@@ -3,19 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_height"
         android:background="@color/bg_title">
+
         <TextView
-            android:id="@+id/tv_light_service_back"
+            android:id="@+id/tv_light_order_back"
             android:layout_width="@dimen/back_width"
             android:layout_height="@dimen/back_height"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/back_marginLeft"
             android:background="@drawable/selector_back" />
+
         <TextView
             android:id="@+id/textView"
             style="@style/TextTheme_tipstheme"
@@ -27,78 +30,499 @@
             android:gravity="center"
             android:text="预约服务" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rl_light_select1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+
         <TextView
             android:id="@+id/tv_province_and_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="省/市："
-            android:textSize="12sp"
-            android:textColor="#838080"/>
+            android:textColor="#838080"
+            android:textSize="15sp" />
+
         <RelativeLayout
             android:id="@+id/rl_select"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_province_and_city">
+
             <TextView
                 android:id="@+id/tv_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/tv_jiantou"
-                android:text="四川 成都"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="四川 成都" />
+
             <TextView
                 android:id="@+id/tv_jiantou"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/light_jiantou"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:background="@drawable/light_jiantou" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e6e6e6"
             android:layout_below="@+id/rl_select"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:background="#e6e6e6" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rl_light_select2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_light_select1"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+
         <TextView
             android:id="@+id/tv_community"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="小区："
-            android:textSize="12sp"
-            android:textColor="#838080"/>
+            android:textColor="#838080"
+            android:textSize="15sp" />
+
         <EditText
             android:id="@+id/et_community"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_community"
-            android:background="@null"/>
+            android:background="@null" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e6e6e6"
             android:layout_below="@+id/et_community"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:background="#e6e6e6" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_light_select2">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家政服务："
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_baojie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="保洁"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_baojie"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/次" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_llbj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="理疗保健"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_llbj"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="199" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/次" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_kfxl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="康复训练"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_kfxl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="320" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/次" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_yytc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="营养套餐"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_yytc"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="35" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/餐" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="老年娱乐："
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_lnhd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/service_item"
+                    android:gravity="center"
+                    android:text="老年活动"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_lnhd"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="免费" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="日间照料："
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="营养套餐"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_gravity="center"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="外出陪同"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_gravity="center"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/service_item"
+                        android:gravity="center"
+                        android:text="日间看护"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="¥"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="2999"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="20dp"
+                    android:text="/月"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff">
+        <View
+            android:id="@+id/v_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="#e6e6e6" />
+        <TextView
+            android:id="@+id/tv_tongji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/v_1"
+            android:text="统计:"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
+        <RelativeLayout
+            android:id="@+id/rl_select_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_tongji"
+            android:layout_below="@+id/v_1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:id="@+id/tv_select_service_item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="老年生活"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="理疗保健"
+                android:layout_margin="3dp"
+                android:layout_toRightOf="@+id/tv_select_service_item1"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="康复训练"
+                android:layout_margin="3dp"
+                android:layout_toRightOf="@+id/tv_select_service_item2"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="营养套餐"
+                android:layout_margin="3dp"
+                android:layout_below="@+id/tv_select_service_item1"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="保洁"
+                android:layout_margin="3dp"
+                android:layout_below="@+id/tv_select_service_item1"
+                android:layout_toRightOf="@+id/tv_select_service_item4"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他"
+                android:layout_margin="3dp"
+                android:layout_below="@+id/tv_select_service_item1"
+                android:layout_toRightOf="@+id/tv_select_service_item5"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_select_service">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/service_pay"
+                android:text="立即支付：¥111"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
