@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.xunman.yibenjiapu.adapter.InformationAdapter;
+import com.xunman.yibenjiapu.ui.InformationDetailsActivity;
 import com.xunman.yibenjiapu.ui.InformationReleaseActivity;
 import com.xunman.yibenjiapu.ui.R;
 
@@ -54,6 +56,13 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         ivBtnRelease.setOnClickListener(this);
         informationAdapter = new InformationAdapter(getActivity());
         lvInformation.setAdapter(informationAdapter);
+        lvInformation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent.setClass(getActivity(), InformationDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
