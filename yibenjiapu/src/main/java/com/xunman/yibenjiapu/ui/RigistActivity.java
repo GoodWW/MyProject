@@ -52,7 +52,7 @@ public class RigistActivity extends AppCompatActivity implements View.OnClickLis
     private TextView regist_get;
     String tag = "RegistActivity";
     //获取验证码按钮倒计时
-    int time = 10;
+    int time = 80;
 
     private Object ob;
 
@@ -161,19 +161,21 @@ public class RigistActivity extends AppCompatActivity implements View.OnClickLis
                                         }
                                     }.start();
                                     ToastUtil.t(getApplicationContext(), "发送验证码成功！");
-                                } else if (result == 13) {
-                                    ToastUtil.t(getApplicationContext(), "电话号码不能为空！");
-                                } else if (result == 10) {
+                                } else if (result == 126) {
+                                    ToastUtil.t(getApplicationContext(), "发送验证码失败！！");
+                                } else if (result == 127) {
                                     ToastUtil.t(getApplicationContext(), "电话号码已经被注册！");
-                                } else if(result == 14){
+                                } else if(result == 120){
                                     ToastUtil.t(getApplicationContext(), "请输入正确电话号码！");
                                 }
                             }
                         }
                     };
                     Map<String, Object> map = new HashMap<>();
-                    map.put("telephone", phone.trim());
-                    new HttpImplStringTest(map, "GetSignUpCode.xml", h3, "POST").start();
+//                    map.put("telephone", phone.trim());
+                    map.put("account", phone.trim());
+//                    new HttpImplStringTest(map, "GetSignUpCode.xml", h3, "POST").start();
+                    new HttpImplStringTest(map, h3, "POST", "http://172.16.1.132:8080/Genealogy/servlet2/user/GetSignUpCode.xml").start();
                 }
                 break;
             case R.id.regist_button_regist:
@@ -191,18 +193,19 @@ public class RigistActivity extends AppCompatActivity implements View.OnClickLis
                         @Override
                         public void handleMessage(Message msg) {
                             if (msg.what == 0x123) {
+                                LogUtils.e("返回信息2", "注册返回===="+msg.obj.toString());
                                 //11成功 10电话呗注册了  12注册失败没有具体原因  126 验证码错误
                                 int result = JSON.parseObject(msg.obj.toString()).getInteger("result");
                                 if (result == 11) {
-                                    //LogUtils.e("返回信息2", "注册成功");
-                                    int setupid = JSON.parseObject(msg.obj.toString()).getInteger("setupid");
+                                    LogUtils.e("返回信息2", "注册成功");
+//                                    int setupid = JSON.parseObject(msg.obj.toString()).getInteger("setupid");
                                     ToastUtil.t(RigistActivity.this, "恭喜你，注册成功！");
-                                    //传送电话号码和用户ID到下一个界面
-                                    Bundle bundle = intent.getExtras();
-                                    bundle.putString("telephone", phone.trim());
-                                    bundle.putInt("setupid", setupid);
-                                    intent.putExtras(bundle);
-                                    intent.setClass(RigistActivity.this, AddInformationActivity.class);
+//                                    //传送电话号码和用户ID到下一个界面
+//                                    Bundle bundle = intent.getExtras();
+//                                    bundle.putString("telephone", phone.trim());
+//                                    bundle.putInt("setupid", setupid);
+//                                    intent.putExtras(bundle);
+                                    intent.setClass(RigistActivity.this, LoginActivity.class);
                                     startActivity(intent);
                                     if (dialog.isShowing()){
                                         dialog.dismiss();
@@ -213,11 +216,11 @@ public class RigistActivity extends AppCompatActivity implements View.OnClickLis
                                         dialog.dismiss();
                                     }
                                     ToastUtil.t(RigistActivity.this, "电话被注册了！");
-                                } else if (result == 12) {
+                                } else if (result == 120) {
                                     if (dialog.isShowing()){
                                         dialog.dismiss();
                                     }
-                                    ToastUtil.t(RigistActivity.this, "网络链接失败！");
+                                    ToastUtil.t(RigistActivity.this, "张海输入有误！");
                                 } else if (result == 126) {
                                     if (dialog.isShowing()){
                                         dialog.dismiss();
@@ -228,12 +231,14 @@ public class RigistActivity extends AppCompatActivity implements View.OnClickLis
                         }
                     };
                     Map<String, Object> map = new HashMap<>();
-                    map.put("telephone", phone.trim());
+                    map.put("account", phone.trim());
+                    map.put("password", "123456");
                     map.put("code", code);
                     //以下两key值占位效果，不能缺少，
-                    map.put("personal", "");
-                    map.put("_class", "");
-                    new HttpImplStringTest(map, "SignUp.xml", h4, "POST").start();
+//                    map.put("personal", "");
+//                    map.put("_class", "");
+//                    new HttpImplStringTest(map, "SignUp.xml", h4, "POST").start();
+                    new HttpImplStringTest(map, h4, "POST", "http://172.16.1.132:8080/Genealogy/servlet2/user/SignUpCode.xml").start();
                 }
                 break;
             case R.id.regist_back:

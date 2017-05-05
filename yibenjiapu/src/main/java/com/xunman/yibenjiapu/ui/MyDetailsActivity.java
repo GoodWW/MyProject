@@ -273,7 +273,7 @@ public class MyDetailsActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    //添加信息到本地share存储
+    /**添加信息到本地share存储*/
     private void addToShare() {
         ShareUtils.putString(this, "headPic", qqAvatarByte);
     }

@@ -13,8 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.xunman.yibenjiapu.ui.LoginActivity;
@@ -78,6 +76,7 @@ public class MyselfFragment2 extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         intent = getActivity().getIntent();
+        bundle = new Bundle();
     }
 
     @Nullable
@@ -112,7 +111,8 @@ public class MyselfFragment2 extends Fragment implements View.OnClickListener {
             new Thread() {
                 @Override
                 public void run() {
-                    String s = HttpImplStringTest.Http_Url_Img_Video + ShareUtils.getString(getActivity(), "headUrl", "");
+//                    String s = HttpImplStringTest.Http_Url_Img_Video + ShareUtils.getString(getActivity(), "headUrl", "");
+                    String s = HttpImplStringTest.WSURL + ShareUtils.getString(getActivity(), "headUrl", "");
                     LogUtils.e("!!!!!!!!!!!", s);
                     bitmap_intenet = BitmapUtils.getbitmap(s);
                     Message msg = new Message();
@@ -128,7 +128,6 @@ public class MyselfFragment2 extends Fragment implements View.OnClickListener {
     }
 
     private void intiView() {
-        bundle = intent.getExtras();
         myself_username = (TextView) mainView.findViewById(R.id.myself_username);
         myself_my_prize = (TextView) mainView.findViewById(R.id.myself_my_prize);
         myself_my_integral = (TextView) mainView.findViewById(R.id.myself_my_integral);
@@ -160,13 +159,12 @@ public class MyselfFragment2 extends Fragment implements View.OnClickListener {
             case R.id.myself_username://登陆名
                 if (ShareUtils.getString(getActivity(), "nickName", qqUsername) != null && ShareUtils.getBoolean(getActivity(), "login", true)) {
                     //用Bundle携带数据
-                    bundle = intent.getExtras();
                     qqUsername = ShareUtils.getString(getActivity(), "nickName", qqUsername);
+                    String str = "张人文";
                     //传递nickName参数
-                    bundle.putString("nickName", qqUsername);
+                    bundle.putString("nickName", str);
                     intent.putExtras(bundle);
                     intent.setClass(getActivity(), MyDetailsActivity.class);
-//                    startActivity(intent);
                     getActivity().startActivityForResult(intent, 11);
                 } else {
                     intent.setClass(getActivity(), LoginActivity.class);
@@ -177,12 +175,11 @@ public class MyselfFragment2 extends Fragment implements View.OnClickListener {
                 if (ShareUtils.getString(getActivity(), "nickName", qqUsername) != null && ShareUtils.getBoolean(getActivity(), "login", true)) {
                     intent.setClass(getActivity(), MyDetailsActivity.class);
                     //用Bundle携带数据
-                    bundle = intent.getExtras();
-                    qqUsername = ShareUtils.getString(getActivity(), "nickName", qqUsername);
+//                    qqUsername = ShareUtils.getString(getActivity(), "nickName", qqUsername);
+                    qqUsername = "张人文";
                     //传递nickName参数
                     bundle.putString("nickName", qqUsername);
                     intent.putExtras(bundle);
-//                    startActivity(intent);
                     getActivity().startActivityForResult(intent, 11);
                 } else {
                     intent.setClass(getActivity(), LoginActivity.class);

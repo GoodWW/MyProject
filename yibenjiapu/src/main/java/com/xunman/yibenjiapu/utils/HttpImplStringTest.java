@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * <p>使用中
  */
 public class HttpImplStringTest extends Thread {
-    // public static final String WSURL = "ws://172.16.1.132:8080/Genealogy/websocket";
+     public static final String WSURL = "http://172.16.1.132/";
 //    public static final String WSURL = "ws://jp.xun-m.com/Genealogy/websocket";
 
     public static String Http_Url = "http://211.149.170.166/Genealogy/";//远程IP链接
@@ -86,6 +86,17 @@ public class HttpImplStringTest extends Thread {
     public HttpImplStringTest(Map<String, Object> map, String path, Handler handler, String Methd) {
         time1 = System.currentTimeMillis();
         this.private_URL = this.Http_Url + path;
+        this.map = map;
+        this.handler = handler;
+        this.Methd = Methd;
+        client = new OkHttpClient();
+        client.setReadTimeout(READ_TIMEOUT, TimeUnit.SECONDS);//设置读取超时时间
+        client.setWriteTimeout(WRITE_TIMEOUT,TimeUnit.SECONDS);//设置写的超时时间
+        client.setConnectTimeout(CONNECT_TIMEOUT,TimeUnit.SECONDS);//设置连接超时时间
+    }
+    public HttpImplStringTest(Map<String, Object> map, Handler handler, String Methd, String path) {
+        time1 = System.currentTimeMillis();
+        this.private_URL =  path;
         this.map = map;
         this.handler = handler;
         this.Methd = Methd;

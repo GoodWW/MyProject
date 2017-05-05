@@ -210,7 +210,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String familyAddress;
     private ProgressDialog dialog;
 
-    //登陆   链接服务器并获得返回信息
+    /**
+     * 登陆   链接服务器并获得返回信息
+     */
     private void linkServerAndBack() {
         //设置一个progressdialog的弹窗
         dialog = ProgressDialog.show(LoginActivity.this, null, "正在登陆，请稍候...", true, false);
@@ -220,7 +222,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (msg.what == 0x123) {
                     String info1 = msg.obj.toString();
                     ShareUtils.putString(LoginActivity.this, "info", info1);
-                    LogUtils.e("返回信息___登陆", info1);
+                    LogUtils.e("返回信息___登陆", "登陆返回信息===="+info1);
                     JSONObject JSONobj = JSON.parseObject(info1);
 //                    String surname_info = JSONobj.getString("surname_info");
 //                    LogUtils.e("返回信息___登陆", surname_info);
@@ -229,23 +231,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (result == 11) {
                         LogUtils.e("返回信息___登陆", "成功");
                         sum = JSON.toJavaObject(JSONobj.getJSONObject("surname_info"), Surname_Info.class);
-                        info = JSON.toJavaObject(JSONobj.getJSONObject("user_info"), User_Info.class);
-                        loginContent = JSON.toJavaObject(JSONobj.getJSONObject("account_info"), Account_Info.class);
-                        if(sum.getId() == 0){
-                            int setupid = loginContent.getId();
-                            Bundle bundle = intent.getExtras();
-                            bundle.putString("telephone", acc_login_account.getText().toString().trim());
-                            bundle.putInt("setupid", setupid);
-                            intent.putExtras(bundle);
-                            if (dialog.isShowing()){
+//                        info = JSON.toJavaObject(JSONobj.getJSONObject("user_info"), User_Info.class);
+//                        loginContent = JSON.toJavaObject(JSONobj.getJSONObject("account_info"), Account_Info.class);
+//                        if (sum.getId() == 0) {
+                        if (sum == null) {
+//                            int setupid = loginContent.getId();
+//                            Bundle bundle = intent.getExtras();
+//                            bundle.putString("telephone", acc_login_account.getText().toString().trim());
+//                            bundle.putInt("setupid", setupid);
+//                            intent.putExtras(bundle);
+                            if (dialog.isShowing()) {
                                 dialog.dismiss();
                             }
                             ToastUtil.t(LoginActivity.this, "请先添加基本信息！");
-                            intent.setClass(LoginActivity.this, AddInformationActivity.class);
+                            intent.setClass(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
-                        }else{
+
+
+
+
+                            ShareUtils.putString(LoginActivity.this, "nickName", "张人文");
+                            ShareUtils.putString(LoginActivity.this, "headUrl", "Genealogy_data/user_info/790935943/head/0.png");
+                            ShareUtils.putBoolean(LoginActivity.this, "login", true);//设置登陆成功标志
+
+
+
+                        } else {
                             String headUrl = loginContent.getHead_url();
-                            LogUtils.e("555555555555555555",headUrl);
+                            LogUtils.e("555555555555555555", headUrl);
                             //保存电话、性别、家族地址，我的信息页面需要用
                             telephone = info.getTelephone();
                             gender = info.getSex();
@@ -268,7 +281,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             intent.setClass(LoginActivity.this, MainActivity.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
-                            if (dialog.isShowing()){
+                            if (dialog.isShowing()) {
                                 dialog.dismiss();
                             }
                             for (int i = 0; i < BaseApplication.list1.size(); i++) {
@@ -277,19 +290,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             ToastUtil.t(LoginActivity.this, "登陆成功！");
                         }
                     } else if (result == 12) {
-                        if (dialog.isShowing()){
+                        if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
                         ToastUtil.t(LoginActivity.this, "网络繁忙,稍后再试！");
                         LogUtils.e("返回信息___登陆", "失败");
                     } else if (result == 122) {
-                        if (dialog.isShowing()){
+                        if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
                         ToastUtil.t(LoginActivity.this, "账号不存在");
                         LogUtils.e("返回信息___登陆", "账号不存在");
                     } else if (result == 121) {
-                        if (dialog.isShowing()){
+                        if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
                         ToastUtil.t(LoginActivity.this, "密码错误！");
@@ -299,9 +312,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         };
         Map<String, Object> map = new HashMap<>();
-        map.put("user_account", acc_login_account.getText().toString().trim());
+        map.put("account", acc_login_account.getText().toString().trim());
         map.put("password", acc_login_password.getText().toString().trim());
-        new HttpImplStringTest(map, "SignIn.xml", h, "POST").start();
+//        new HttpImplStringTest(map, "SignIn.xml", h, "POST").start();
+        new HttpImplStringTest(map, h, "POST", "http://172.16.1.132:8080/Genealogy/servlet2/user/SignIn.xml").start();
     }
 
 
