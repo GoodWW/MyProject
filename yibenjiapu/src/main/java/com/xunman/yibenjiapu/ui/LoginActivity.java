@@ -33,6 +33,7 @@ import com.xunman.yibenjiapu.bean.Account_Info;
 import com.xunman.yibenjiapu.bean.Surname_Info;
 import com.xunman.yibenjiapu.bean.User_Info;
 import com.xunman.yibenjiapu.customview.DeletableEditText;
+import com.xunman.yibenjiapu.dao.Login;
 import com.xunman.yibenjiapu.utils.BitmapUtils;
 import com.xunman.yibenjiapu.utils.HttpImplStringTest;
 import com.xunman.yibenjiapu.utils.LogUtils;
@@ -78,12 +79,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    private SurnameList1.ContentsBean contentsBean = null;
     private Surname_Info sum;
     private User_Info info;
+    /**
+     * 登陆内部类
+     */
+    private LoginU loginU;
+    //网络访问进度条弹框
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         intiView();
+        loginU = new LoginU();
         if (phone != null && password != null) {
             acc_login_account.setText(phone);
             acc_login_password.setText(password);
@@ -104,6 +112,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return isLogin;
     }
 
+    //初始化控件
     private void intiView() {
         intent = getIntent();
         bundle = intent.getExtras();
@@ -118,7 +127,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         acc_login_qq = (ImageView) findViewById(R.id.acc_login_qq);
         acc_login_weixin = (ImageView) findViewById(R.id.acc_login_weixin);
         acc_login_weibo = (ImageView) findViewById(R.id.acc_login_weibo);
-
         acc_login_account = (DeletableEditText) findViewById(R.id.acc_login_account);
         acc_login_password = (DeletableEditText) findViewById(R.id.acc_login_password);
         //新用户注册按钮
@@ -126,7 +134,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         acc_login_back = (TextView) findViewById(R.id.acc_login_back);
         acc_login_forgetpassword = (TextView) findViewById(R.id.acc_login_forget_password);
 
-//        acc_login_im.setOnClickListener(this);
         acc_login_login.setOnClickListener(this);
         acc_login_weixin.setOnClickListener(this);
         acc_login_qq.setOnClickListener(this);
@@ -138,47 +145,84 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    class LoginU extends Login {
+        public LoginU() {
+
+        }
+    }
+
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.acc_login_back:
+            case R.id.acc_login_back://返回
                 finish();
                 break;
 //            case R.id.acc_login_im://头像图片
 //                Toast.makeText(this, "请先登陆", Toast.LENGTH_SHORT).show();
 //                break;
             case R.id.acc_login_login://登陆按钮
-
-                LogUtils.e(TAG, "点击了登陆按钮");
-
-                boolean isTel = true; // 标记位：true-是手机号码；false-不是手机号码
                 /**
-                 * 判断输入的用户名是否是电话号码
+                 * 1.判断信息是否输入正常
+                 * 2.执行登陆操作
                  */
-                if (acc_login_account.getText().toString().length() == 11) {
-                    for (int i = 0; i < acc_login_account.getText().toString().length(); i++) {
-                        char c = acc_login_account.getText().toString().charAt(i);
-                        if (!Character.isDigit(c)) {
-                            isTel = false;
-                            break; // 只要有一位不符合要求退出循环
+                final Handler LoginResultHander = new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        //设置一个progressdialog的弹窗
+                        dialog = ProgressDialog.show(LoginActivity.this, null, "正在登陆，请稍候...", true, false);
+                       if (msg.what==0x123){
+                           Login.LoginInfo=msg.obj.toString();
+                           LogUtils.e("LoginInfo",Login.LoginInfo);
+                           switch (Login.getLoginResult()){
+                               case 0:
+                                   ToastUtil.t(LoginActivity.this, "请登陆");
+                                   if (dialog.isShowing())dialog.dismiss();
+                                   break;
+                               case 11:
+                                   ToastUtil.t(LoginActivity.this, "登陆成功");
+                                   if (dialog.isShowing())dialog.dismiss();
+                                   //登陆成功后判断跳转页面
+                                   //loginSucceed();
+                                   break;
+                               case 127:
+                                   ToastUtil.t(LoginActivity.this, "账号不存在");
+                                   if (dialog.isShowing())dialog.dismiss();
+                                   break;
+                               case 126:
+                                   ToastUtil.t(LoginActivity.this, "密码错误");
+                                   if (dialog.isShowing())dialog.dismiss();
+                                   break;
+                           }
+                       }
+                    }
+                };
+                final Map<String, Object> LoginMap = new HashMap<>();
+                Handler LoginHander = new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        switch (msg.what) {
+                            case 0x10:
+                                loginU.userLogin("tele", LoginMap, LoginResultHander);
+                                break;
+                            case 0x11:
+                                acc_login_account.setShakeAnimation();
+                                ToastUtil.t(LoginActivity.this, "请输入您的账号");
+                                break;
+                            case 0x12:
+                                acc_login_account.setShakeAnimation();
+                                ToastUtil.t(LoginActivity.this, "请输入11位手机号码");
+                                break;
+                            case 0x13:
+                                acc_login_password.setShakeAnimation();
+                                ToastUtil.t(LoginActivity.this, "请输入密码");
+                                break;
                         }
                     }
-                } else {
-                    isTel = false;
-                }
-
-                if (TextUtils.isEmpty(acc_login_account.getText())) {
-                    acc_login_account.setShakeAnimation();
-                    ToastUtil.t(LoginActivity.this, "请输入您的账号");
-                } else if (!isTel) {
-                    ToastUtil.t(LoginActivity.this, "请输入11位手机号码");
-                } else if (TextUtils.isEmpty(acc_login_password.getText())) {
-                    acc_login_password.setShakeAnimation();
-                    ToastUtil.t(LoginActivity.this, "请输入密码");
-                } else {
-                    //链接服务器并获得返回信息
-                    linkServerAndBack();
-                }
+                };
+                LoginMap.put("account", acc_login_account.getText().toString());
+                LoginMap.put("password", acc_login_password.getText().toString());
+                loginU.LoginInfo(LoginMap, "TeleLogin", LoginHander);
                 break;
             case R.id.acc_login_rigist://注册账号
                 intent.setClass(this, RigistActivity.class);
@@ -208,11 +252,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String telephone;
     String gender;
     String familyAddress;
-    private ProgressDialog dialog;
 
     /**
-     * 登陆   链接服务器并获得返回信息
+     * 登陆成功后 拿到服务器返回数据 并进行判断 跳转页面
      */
+    private void loginSucceed(){
+        sum = JSON.toJavaObject(JSON.parseObject(Login.LoginInfo).getJSONObject("surname_info"), Surname_Info.class);
+        info = JSON.toJavaObject(JSON.parseObject(Login.LoginInfo).getJSONObject("user_info"), User_Info.class);
+        loginContent = JSON.toJavaObject(JSON.parseObject(Login.LoginInfo).getJSONObject("account_info"), Account_Info.class);
+        if (sum.getId() == 0) {
+            bundle.putString("telephone", acc_login_account.getText().toString().trim());
+            bundle.putInt("setupid", loginContent.getId());
+            intent.putExtras(bundle);
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            ToastUtil.t(LoginActivity.this, "请先添加基本信息！");
+            intent.setClass(LoginActivity.this, AddInformationActivity.class);
+            startActivity(intent);
+        } else {
+            //保存电话、性别、家族地址，我的信息页面需要用
+            telephone = info.getTelephone();
+            gender = info.getSex();
+            familyAddress = info.getPlace();
+            ShareUtils.putString(LoginActivity.this, "telephone", telephone);
+            ShareUtils.putString(LoginActivity.this, "gender", gender);
+            ShareUtils.putString(LoginActivity.this, "familyAddress", familyAddress);
+            ShareUtils.putString(LoginActivity.this, "headUrl", loginContent.getHead_url());
+            sur = info.getSur();
+            name = info.getName();
+            ShareUtils.setId(loginContent.getId());
+            ShareUtils.putInt(LoginActivity.this, "id", loginContent.getId());
+            ShareUtils.putString(LoginActivity.this, "sur", sur);
+            ShareUtils.putString(LoginActivity.this, "name", name);
+            bundle.putSerializable("sum", sum);
+            ShareUtils.putBoolean(LoginActivity.this, "login", true);//设置登陆成功标志
+            intent.setClass(LoginActivity.this, MainActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            for (int i = 0; i < BaseApplication.list1.size(); i++) {
+                BaseApplication.list1.get(i).finish();
+            }
+        }
+    }
+
+
+    //登陆   链接服务器并获得返回信息
     private void linkServerAndBack() {
         //设置一个progressdialog的弹窗
         dialog = ProgressDialog.show(LoginActivity.this, null, "正在登陆，请稍候...", true, false);
@@ -221,41 +309,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void handleMessage(Message msg) {
                 if (msg.what == 0x123) {
                     String info1 = msg.obj.toString();
-                    ShareUtils.putString(LoginActivity.this, "info", info1);
-                    LogUtils.e("返回信息___登陆", "登陆返回信息===="+info1);
+                    //ShareUtils.putString(LoginActivity.this, "info", info1);
+                    LogUtils.e("返回信息___登陆", info1);
                     JSONObject JSONobj = JSON.parseObject(info1);
 //                    String surname_info = JSONobj.getString("surname_info");
 //                    LogUtils.e("返回信息___登陆", surname_info);
 //                    ShareUtils.putString(LoginActivity.this, "surname_info", surname_info);
                     int result = JSONobj.getInteger("result");
                     if (result == 11) {
+
                         LogUtils.e("返回信息___登陆", "成功");
+
                         sum = JSON.toJavaObject(JSONobj.getJSONObject("surname_info"), Surname_Info.class);
-//                        info = JSON.toJavaObject(JSONobj.getJSONObject("user_info"), User_Info.class);
-//                        loginContent = JSON.toJavaObject(JSONobj.getJSONObject("account_info"), Account_Info.class);
-//                        if (sum.getId() == 0) {
-                        if (sum == null) {
-//                            int setupid = loginContent.getId();
-//                            Bundle bundle = intent.getExtras();
-//                            bundle.putString("telephone", acc_login_account.getText().toString().trim());
-//                            bundle.putInt("setupid", setupid);
-//                            intent.putExtras(bundle);
+                        info = JSON.toJavaObject(JSONobj.getJSONObject("user_info"), User_Info.class);
+                        loginContent = JSON.toJavaObject(JSONobj.getJSONObject("account_info"), Account_Info.class);
+                        if (sum.getId() == 0) {
+                            int setupid = loginContent.getId();
+                            Bundle bundle = intent.getExtras();
+                            bundle.putString("telephone", acc_login_account.getText().toString().trim());
+                            bundle.putInt("setupid", setupid);
+                            intent.putExtras(bundle);
                             if (dialog.isShowing()) {
                                 dialog.dismiss();
                             }
                             ToastUtil.t(LoginActivity.this, "请先添加基本信息！");
-                            intent.setClass(LoginActivity.this, MainActivity.class);
+                            intent.setClass(LoginActivity.this, AddInformationActivity.class);
                             startActivity(intent);
-
-
-
-
-                            ShareUtils.putString(LoginActivity.this, "nickName", "张人文");
-                            ShareUtils.putString(LoginActivity.this, "headUrl", "Genealogy_data/user_info/790935943/head/0.png");
-                            ShareUtils.putBoolean(LoginActivity.this, "login", true);//设置登陆成功标志
-
-
-
                         } else {
                             String headUrl = loginContent.getHead_url();
                             LogUtils.e("555555555555555555", headUrl);
@@ -312,10 +391,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         };
         Map<String, Object> map = new HashMap<>();
-        map.put("account", acc_login_account.getText().toString().trim());
+        map.put("user_account", acc_login_account.getText().toString().trim());
         map.put("password", acc_login_password.getText().toString().trim());
-//        new HttpImplStringTest(map, "SignIn.xml", h, "POST").start();
-        new HttpImplStringTest(map, h, "POST", "http://172.16.1.132:8080/Genealogy/servlet2/user/SignIn.xml").start();
+        new HttpImplStringTest(map, "SignIn.xml", h, "POST").start();
     }
 
 

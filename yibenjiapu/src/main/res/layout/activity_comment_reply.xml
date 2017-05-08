@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!--资讯发布页面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title">
+
+        <TextView
+            android:id="@+id/tv_conment_reply_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="评论回复" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_comment_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl"
+        android:divider="@null">
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/et_msg"
+            android:clickable="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/et_information"
+            android:maxHeight="100dp"
+            android:textSize="14sp"
+            android:padding="5dp" />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:id="@+id/btn_right"
+            android:layout_gravity="bottom"
+            android:text="发送"
+            android:textColor="#aaaaaa"
+            android:background="@drawable/btn_information_send" />
+    </LinearLayout>
+</RelativeLayout>

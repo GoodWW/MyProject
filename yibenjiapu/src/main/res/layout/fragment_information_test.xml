@@ -82,10 +82,9 @@
                 android:layout_toRightOf="@+id/tv_visit"/>
         </RelativeLayout>
     </RelativeLayout>
-    <ListView
+    <com.xunman.yibenjiapu.customview.RefreshListView
         android:id="@+id/lv_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-    </ListView>
+    </com.xunman.yibenjiapu.customview.RefreshListView>
 </LinearLayout>

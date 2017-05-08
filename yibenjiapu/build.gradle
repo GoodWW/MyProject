@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.xunman.yibenjiapu.ui"
         minSdkVersion 15
@@ -64,4 +64,6 @@ dependencies {
     //微信jar
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile files('libs/android-support-v7-recyclerview.jar')
+
+    compile files('libs/okhttp-3.7.0.jar')
 }

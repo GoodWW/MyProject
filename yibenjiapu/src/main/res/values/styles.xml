@@ -136,4 +136,11 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <!--Fragment网络访问进度条-->
+    <style name="myProgress" parent="@android:style/Theme.Dialog">
+        <item name="android:indeterminateDrawable">@drawable/myprogress</item>
+        <item name="android:windowBackground"> @android:color/transparent </item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

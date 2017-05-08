@@ -30,9 +30,11 @@ import com.xunman.yibenjiapu.bean.AdvertisementInfoNew;
 import com.xunman.yibenjiapu.bean.SurnameList1;
 import com.xunman.yibenjiapu.bean.Surname_Info;
 import com.xunman.yibenjiapu.customview.RefreshListView;
+import com.xunman.yibenjiapu.dao.FirstDao;
 import com.xunman.yibenjiapu.ui.ItemMainActivity;
 import com.xunman.yibenjiapu.ui.LoginActivity;
 import com.xunman.yibenjiapu.ui.R;
+import com.xunman.yibenjiapu.utils.HttpImpl;
 import com.xunman.yibenjiapu.utils.HttpImplStringTest;
 import com.xunman.yibenjiapu.utils.LogUtils;
 import com.xunman.yibenjiapu.utils.ShareUtils;
@@ -74,9 +76,9 @@ public class MainFragmentTestForViewpager extends Fragment implements RefreshLis
     private int int_ad = 0;
     //    private SurnameList1.ContentsBean contentsBean ;
     private Surname_Info sum;
-//    // 定位item按钮
+    //    // 定位item按钮
 //    private TextView tvMainItemLocation;
-private Handler handler_family_and_name;
+    private Handler handler_family_and_name;
     private Handler handler_ad;
 
 
@@ -99,11 +101,11 @@ private Handler handler_family_and_name;
 
         adList = new ArrayList<>();
         adLists = new ArrayList<>();
-        getNameDate();
-        if (int_ad==0){
+        if (int_ad == 0) {
             getAdDate();
-            int_ad =1;
+            int_ad = 1;
         }
+        getNameDate();
     }
 
     String strSB;
@@ -113,9 +115,9 @@ private Handler handler_family_and_name;
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LogUtils.e("返回", "onCreateView");
-        if (contentView ==null){
+        if (contentView == null) {
             contentView = inflater.inflate(R.layout.fragment_main_for_viewpager, container, false);
-        }else{
+        } else {
             return contentView;
         }
 
@@ -373,19 +375,20 @@ private Handler handler_family_and_name;
             map.put("number", 10);
             map.put("sort", "sort");
             map.put("key", "number");
-            new HttpImplStringTest(map, "SelectSurname.xml", handler_addMore, "POST").start();
+            new HttpImpl(map, FirstDao.SELECTSURNAME, HttpImpl.POSTMethd, handler_addMore).start();
         } else {
             Map<String, Object> map = new HashMap<>();
             map.put("start", start1 + 10);
             map.put("number", 10);
             map.put("sort", "subtract");
             map.put("key", "number");
-            new HttpImplStringTest(map, "SelectSurname.xml", handler_addMore, "POST").start();
+            new HttpImpl(map,FirstDao.SELECTADVERTISEMENTLIST, HttpImpl.POSTMethd, handler_addMore).start();
             start1 += 10;
         }
     }
 
     private String str_name;
+
     public void getNameDate() {
         //获取网络数据,姓氏数据
         handler_family_and_name = new Handler() {
@@ -405,9 +408,11 @@ private Handler handler_family_and_name;
         map.put("number", 15);
         map.put("sort", "sort");
         map.put("key", "number");
-        new HttpImplStringTest(map, "SelectSurname.xml", handler_family_and_name, "POST").start();
+        new HttpImpl(map, FirstDao.SELECTSURNAME, HttpImpl.POSTMethd, handler_family_and_name).start();
     }
+
     private String str_ad;
+
     public void getAdDate() {
         //获取网络数据,广告数据
         handler_ad = new Handler() {
@@ -426,8 +431,8 @@ private Handler handler_family_and_name;
         Map<String, Object> map2 = new HashMap<>();
         map2.put("start", 1);
         map2.put("number", 3);
-        map2.put("time", null);
-        new HttpImplStringTest(map2, "SelectAdvertisementList.xml", handler_ad, "GET").start();
+        map2.put("time", "");
+        new HttpImpl(map2, FirstDao.SELECTADVERTISEMENTLIST, HttpImpl.GETMethd,handler_ad).start();
     }
 
     /**
@@ -458,7 +463,7 @@ private Handler handler_family_and_name;
                 Glide.with(mContext)
                         .load(adLists.get(i).getImageurl())//   .load(PathUrl + advertisementInfo.getContents().get(i).getImageurl())
 //                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)//是将图片原尺寸缓存到本地。
-                        .placeholder(R.mipmap.logo_logo)
+//                        .placeholder(R.mipmap.logo_logo)
 //                        .crossFade()
                         .into(imageView);
                 linDots.addView(dotsItem(i));
@@ -520,7 +525,7 @@ private Handler handler_family_and_name;
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
             View layout = inflater.inflate(R.layout.view_dots, null);
             ImageView point = (ImageView) layout.findViewById(R.id.dot);
-            android.widget.LinearLayout.LayoutParams params = new android.widget.LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 //            params.setMargins(10, 10, 10, 10);
             point.setLayoutParams(params);
