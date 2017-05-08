@@ -64,6 +64,5 @@ dependencies {
     //微信jar
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile files('libs/android-support-v7-recyclerview.jar')
-
     compile files('libs/okhttp-3.7.0.jar')
 }

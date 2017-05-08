@@ -91,7 +91,6 @@ public class MainFragmentTestAdapter3 extends BaseAdapter {
                         .into(viewHolder.head);
                 viewHolder.name.setText(sum.getSurname());//surname
                 viewHolder.intr.setText(sum.getCradleintr());//ancestorsintr
-                Log.e("=|=|=======", String.valueOf(sum.getOnline_number()));
                 viewHolder.renshu.setText(String.valueOf(sum.getOnline_number()));
                 viewHolder.fenzhi.setText(String.valueOf(sum.getBranch()));
                 contentsBean = null;

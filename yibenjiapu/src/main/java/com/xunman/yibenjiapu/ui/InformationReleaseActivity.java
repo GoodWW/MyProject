@@ -23,13 +23,11 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.xunman.yibenjiapu.adapter.GridAdapter;
 import com.xunman.yibenjiapu.application.BaseApplication;
-import com.xunman.yibenjiapu.bean.CircleBean;
 import com.xunman.yibenjiapu.dao.Login;
 import com.xunman.yibenjiapu.mode.ExpressionMode;
 import com.xunman.yibenjiapu.utils.Bimp;
 import com.xunman.yibenjiapu.utils.FileUtils;
 import com.xunman.yibenjiapu.utils.HttpImpl;
-import com.xunman.yibenjiapu.utils.HttpImplStringTest;
 import com.xunman.yibenjiapu.utils.LogUtils;
 import com.xunman.yibenjiapu.utils.MyPopupWindow;
 import com.xunman.yibenjiapu.utils.SystemUtils;
@@ -57,11 +55,11 @@ import java.util.Map;
 public class InformationReleaseActivity extends AppCompatActivity implements View.OnClickListener {
     private Intent intent;
     private Bundle bundle;
-    //返回按钮
+    /**返回按钮*/
     private TextView information_release_back;
-    //表情按钮
+    /**表情按钮*/
     private RelativeLayout rlInformationIconFace;
-    //放置图片GridView
+    /**放置图片GridView*/
     private RelativeLayout rlPicture;
     private GridAdapter mAdapter;
     private NoScrollGridView mGridView;
@@ -72,7 +70,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     private TextView tvSend;
     //发表资讯标题
     private EditText etInformationTitle;
-    //发布内容输入框
+    /**发布内容输入框*/
     private EditText expressionTextInput;
     private ExpressionGridView expressionGridview;
     private RelativeLayout rl_test;
@@ -276,6 +274,13 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         dialog = ProgressDialog.show(InformationReleaseActivity.this, null, "正在发布，请稍候...", true, false);
         //获取用户输入标题、内容
         String etContents = expressionTextInput.getText().toString();
+
+
+
+
+
+
+
         String infoTitle = etInformationTitle.getText().toString();
         final List<File> listfile = new ArrayList<>();
 
