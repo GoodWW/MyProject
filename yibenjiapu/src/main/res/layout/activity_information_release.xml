@@ -187,16 +187,14 @@
             <RelativeLayout
                 android:id="@+id/rl_test"
                 android:layout_width="wrap_content"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 >
-                <com.xunman.yibenjiapu.view.ExpressionGridView
-                    android:id="@+id/expression_gridview"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                <include
+                    android:id="@+id/chat_face_container"
+                    layout="@layout/chat_face_container"
+                    android:visibility="gone"
+                    />
                 <!--&lt;!&ndash;  预览框&ndash;&gt;-->
                 <!--<RelativeLayout-->
                     <!--android:id="@+id/face_view"-->

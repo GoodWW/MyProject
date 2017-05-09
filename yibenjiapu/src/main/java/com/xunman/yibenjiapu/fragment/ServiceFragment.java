@@ -106,7 +106,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         String msg = et_masg.getText().toString().trim();
         //String msg_left = "请拨打客服电话 0288868868";
-        String msg_left = "请拨打客服电话<font color='#3333FF'>028-8868868</font>";
+        String msg_left = "请拨打客服电话<font color='#3333FF'>028-87778611</font>";
         switch (v.getId()) {
             case R.id.btn_left:
                 adapter.addDataToAdapter(new MsgInfo(msg, null));

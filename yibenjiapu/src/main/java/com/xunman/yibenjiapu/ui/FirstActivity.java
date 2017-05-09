@@ -16,7 +16,6 @@ import com.xunman.yibenjiapu.utils.StaticClass;
  * <p>使用中</p>
  */
 public class FirstActivity extends Activity {
-    private String OnlineString_a = null, OnlineString_b = null;
     private Intent intent;
     //2月20号修改 页面跳转
     private Handler handler = new Handler() {
@@ -44,7 +43,7 @@ public class FirstActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         BaseApplication.list.add(this);
-        handler.sendEmptyMessageDelayed(StaticClass.HANDLE_SPLASH,3000);
+        handler.sendEmptyMessageDelayed(StaticClass.HANDLE_SPLASH,1000);
 
     }
 
