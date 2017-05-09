@@ -78,7 +78,8 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--引导界面-->
         <activity
             android:name=".GuideActivity"
@@ -116,7 +117,8 @@
         <activity
             android:name=".AddInformationActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <activity
             android:name=".ChangePassWordActivity"
             android:screenOrientation="portrait"
@@ -174,7 +176,8 @@
         <activity
             android:name=".DetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--家谱树页面-->
         <activity
             android:name=".JiaPuTreeTestActivity"
@@ -254,51 +257,68 @@
         <activity
             android:name=".MyVipActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--点亮活动首页页面-->
         <activity
             android:name=".ActionLightActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
+        <!--其他活动页面-->
+        <activity
+            android:name=".ActionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--点亮活动服务页面-->
         <activity
             android:name=".ServiceLightActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--点亮活动预约服务页面-->
         <activity
             android:name=".LightOrderActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--资讯发布页面-->
         <activity
             android:name=".InformationReleaseActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--相册展示页-->
-        <activity android:name=".ImageGridActivity"></activity>
+        <activity android:name=".ImageGridActivity">
+        </activity>
         <!--选择相册页-->
         <activity
             android:name=".TestPicActivity"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
         <!--图片展示页-->
-        <activity android:name=".PhotoActivity"></activity>
+        <activity android:name=".PhotoActivity">
+        </activity>
         <!--论坛详情页面-->
         <activity
             android:name=".InformationDetailsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--论坛评论回复页面-->
         <activity
             android:name=".CommentReplyActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
         <!--论坛查看图片页面-->
         <activity
             android:name=".ImagePagerActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+        </activity>
 
         <!-- QQ注册SDKActivity -->
         <activity
@@ -315,7 +335,8 @@
                 <data android:scheme="tencent1106011644" /> <!-- 开放平台获取的APPID -->
             </intent-filter>
         </activity>
-        <service android:name="com.xunman.yibenjiapu.service.WebSocketService"></service>
+        <service android:name="com.xunman.yibenjiapu.service.WebSocketService">
+        </service>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/bg_title">
+        <TextView
+            android:id="@+id/tv_action_back"
+            android:layout_width="@dimen/back_width"
+            android:layout_height="@dimen/back_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/back_marginLeft"
+            android:background="@drawable/selector_back" />
+        <TextView
+            android:id="@+id/tv_specific_action_title"
+            style="@style/TextTheme_tipstheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="活动标题" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl">
+        <ImageView
+            android:id="@+id/iv_action"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_action_light"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/tv_action_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:text="参加"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"/>
+    </RelativeLayout>
+</RelativeLayout>

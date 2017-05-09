@@ -21,8 +21,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.xunman.yibenjiapu.adapter.InformationAdapter;
 import com.xunman.yibenjiapu.bean.InformationBean;
 import com.xunman.yibenjiapu.customview.RefreshListView;
+import com.xunman.yibenjiapu.dao.Login;
 import com.xunman.yibenjiapu.ui.InformationDetailsActivity;
 import com.xunman.yibenjiapu.ui.InformationReleaseActivity;
+import com.xunman.yibenjiapu.ui.LoginActivity;
 import com.xunman.yibenjiapu.ui.R;
 import com.xunman.yibenjiapu.utils.HttpImpl;
 import com.xunman.yibenjiapu.utils.LogUtils;
@@ -247,8 +249,14 @@ public class InformationFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_btn_release:
-                intent.setClass(getActivity(), InformationReleaseActivity.class);
-                startActivity(intent);
+                if(Login.getLoginInfo("id")== null){
+                    ToastUtil.t(getActivity(), "请先登陆");
+                    intent.setClass(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent.setClass(getActivity(), InformationReleaseActivity.class);
+                    startActivity(intent);
+                }
                 break;
         }
     }
