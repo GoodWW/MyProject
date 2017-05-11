@@ -1,6 +1,5 @@
 package com.xunman.yibenjiapu.fragment;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,13 +7,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -42,20 +39,27 @@ import java.util.Map;
  * 描述    资讯列表界面
  */
 
-public class InformationFragment extends Fragment implements View.OnClickListener,RefreshListView.ILoadListtener{
+public class InformationFragment extends Fragment implements View.OnClickListener, RefreshListView.ILoadListtener {
     private View view;
     private Intent intent;
     private Bundle bundle;
-    //发布的论坛消息列表
+    /**
+     * 发布的论坛消息列表
+     */
     private RefreshListView lvInformation;
-    //发布动态按钮
+    /**
+     * 发布动态按钮
+     */
     private ImageView ivBtnRelease;
-    //资讯列表Adapter
+    /**
+     * 资讯列表Adapter
+     */
     private InformationAdapter informationAdapter;
-    //服务器返回信息映射类
+    /**
+     * 服务器返回信息映射类
+     */
     private InformationBean informationBean;
 
-    private Boolean information = true;
 
     public static Fragment instance() {
         InformationFragment informationFragment = new InformationFragment();
@@ -78,9 +82,11 @@ public class InformationFragment extends Fragment implements View.OnClickListene
         init();
         return view;
     }
+
     //网络访问进度条
     private ProgressFragmentDialog dialog;
     private List<InformationBean.InfoBean> infoBeen;
+
     /**
      * 获取资讯列表信息
      */
@@ -93,24 +99,24 @@ public class InformationFragment extends Fragment implements View.OnClickListene
                     LogUtils.e("返回信息___资讯", info);
                     JSONObject JSONobj = JSON.parseObject(info);
                     int result = JSONobj.getInteger("result");
-                    if(result == 11){
-                        informationBean=JSON.toJavaObject(JSON.parseObject(info), InformationBean.class);
+                    if (result == 11) {
+                        informationBean = JSON.toJavaObject(JSON.parseObject(info), InformationBean.class);
                         infoBeen.addAll(informationBean.getInfo());
                         informationAdapter.updateInfoAdapter(infoBeen);
-                        if (dialog.getDialog().isShowing())dialog.dismiss();
-                    }else if(result == 12){
+                        if (dialog.getDialog().isShowing()) dialog.dismiss();
+                    } else if (result == 12) {
                         ToastUtil.t(getActivity(), "资讯加载失败");
-                        if (dialog.getDialog().isShowing())dialog.dismiss();
+                        if (dialog.getDialog().isShowing()) dialog.dismiss();
                     }
                 }
             }
         };
         Map<String, Object> mapInfo = new HashMap<>();
-        mapInfo.put("start",1);
-        mapInfo.put("number",15);
-        mapInfo.put("sort","subtract");
-        mapInfo.put("label","");
-        new HttpImpl(mapInfo, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST",InfoH).start();
+        mapInfo.put("start", 1);
+        mapInfo.put("number", 15);
+        mapInfo.put("sort", "subtract");
+        mapInfo.put("label", "");
+        new HttpImpl(mapInfo, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST", InfoH).start();
     }
 
 
@@ -121,7 +127,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
 
         ivBtnRelease.setOnClickListener(this);
         infoBeen = new ArrayList<>();
-        informationAdapter = new InformationAdapter(infoBeen,getActivity(),intent);
+        informationAdapter = new InformationAdapter(infoBeen, getActivity(), intent);
         lvInformation.setAdapter(informationAdapter);
         lvInformation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -154,8 +160,8 @@ public class InformationFragment extends Fragment implements View.OnClickListene
                     LogUtils.e("刷新返回信息__资讯", info);
                     JSONObject JSONobj = JSON.parseObject(info);
                     int result = JSONobj.getInteger("result");
-                    if(result == 11){
-                        informationBean=JSON.toJavaObject(JSON.parseObject(info), InformationBean.class);
+                    if (result == 11) {
+                        informationBean = JSON.toJavaObject(JSON.parseObject(info), InformationBean.class);
                         infoBeen.addAll(informationBean.getInfo());
                         LogUtils.e("listindex", infoBeen.size() + "个");
                         informationAdapter.notifyDataSetChanged();
@@ -166,12 +172,13 @@ public class InformationFragment extends Fragment implements View.OnClickListene
             }
         };
         Map<String, Object> mapInfo = new HashMap<>();
-        mapInfo.put("start",1);
-        mapInfo.put("number",15);
-        mapInfo.put("sort","subtract");
-        mapInfo.put("label","");
-        new HttpImpl(mapInfo, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST",refreshInfoH).start();
+        mapInfo.put("start", 1);
+        mapInfo.put("number", 15);
+        mapInfo.put("sort", "subtract");
+        mapInfo.put("label", "");
+        new HttpImpl(mapInfo, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST", refreshInfoH).start();
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showListView(RefreshListView lv) {
         informationAdapter.onDateChange(infoBeen);
@@ -215,7 +222,7 @@ public class InformationFragment extends Fragment implements View.OnClickListene
 //                            lvInformation.loadConplete();
 //                        }
                         if (s != null) {
-                            informationBean=JSON.toJavaObject(JSON.parseObject(str), InformationBean.class);
+                            informationBean = JSON.toJavaObject(JSON.parseObject(str), InformationBean.class);
                             infoBeen.addAll(informationBean.getInfo());
                             LogUtils.e("listindex", infoBeen.size() + "个");
                             lvInformation.loadConplete();
@@ -228,12 +235,12 @@ public class InformationFragment extends Fragment implements View.OnClickListene
             }
         };
 //        if (infoBeen.size() == 15) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("start", infoBeen.size()+1);
-            map.put("number", 10);
-            map.put("sort","subtract");
-            map.put("label","");
-            new HttpImpl(map, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST",addMoreInfoH).start();
+        Map<String, Object> map = new HashMap<>();
+        map.put("start", infoBeen.size() + 1);
+        map.put("number", 10);
+        map.put("sort", "subtract");
+        map.put("label", "");
+        new HttpImpl(map, "http://172.16.1.132:8080/Genealogy/servlet2/info/PullInfo.xml", "POST", addMoreInfoH).start();
 //        } else {
 //            Map<String, Object> map = new HashMap<>();
 //            map.put("start", start1 + 10);
@@ -247,13 +254,13 @@ public class InformationFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_btn_release:
-                if(Login.getLoginInfo("id")== null){
+                if (Login.getLoginInfo("id") == null) {
                     ToastUtil.t(getActivity(), "请先登陆");
                     intent.setClass(getActivity(), LoginActivity.class);
                     startActivity(intent);
-                }else {
+                } else {
                     intent.setClass(getActivity(), InformationReleaseActivity.class);
                     startActivity(intent);
                 }
