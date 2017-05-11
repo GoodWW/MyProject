@@ -78,11 +78,17 @@ import java.util.regex.Pattern;
 public class InformationReleaseActivity extends AppCompatActivity implements View.OnClickListener {
     private Intent intent;
     private Bundle bundle;
-    /**返回按钮*/
+    /**
+     * 返回按钮
+     */
     private TextView information_release_back;
-    /**表情按钮*/
+    /**
+     * 表情按钮
+     */
     private RelativeLayout rlInformationIconFace;
-    /**放置图片GridView*/
+    /**
+     * 放置图片GridView
+     */
     private RelativeLayout rlPicture;
     private GridAdapter mAdapter;
     private NoScrollGridView mGridView;
@@ -94,9 +100,13 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     //发表资讯标题
     private EditText etInformationTitle;
 
-    /**  表情布局  */
+    /**
+     * 表情布局
+     */
     private LinearLayout chat_face_container;
-    /**发布内容输入框*/
+    /**
+     * 发布内容输入框
+     */
     private EditText expressionTextInput;
     private RelativeLayout rl_test;
 
@@ -119,14 +129,10 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         rl_test = (RelativeLayout) findViewById(R.id.rl_test);
         rlPicture = (RelativeLayout) findViewById(R.id.rl_picture);
         etInformationTitle = (EditText) findViewById(R.id.et_information_title);
-        chat_face_container=(LinearLayout) findViewById(R.id.chat_face_container);
+        chat_face_container = (LinearLayout) findViewById(R.id.chat_face_container);
         mDotsLayout = (LinearLayout) findViewById(R.id.face_dots_container);
         mViewPager = (ViewPager) findViewById(R.id.face_viewpager);
         mViewPager.addOnPageChangeListener(new PageChange());
-
-
-
-
 
 
         rlPicture.setOnClickListener(this);
@@ -150,10 +156,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         InitViewPager();
         //表情按钮
         rlPicture.setOnClickListener(this);
-
-
         tvSend = (TextView) findViewById(R.id.tv_send);
-
         information_release_back.setFocusable(true);
         information_release_back.setFocusableInTouchMode(true);
         information_release_back.requestFocus();
@@ -161,7 +164,6 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         tvSend.setOnClickListener(this);
         information_release_back.setOnClickListener(this);
         rlInformationIconFace.setOnClickListener(this);
-
     }
 
     @Override
@@ -169,7 +171,6 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         mAdapter.update();
         super.onRestart();
     }
-
 
 
     @Override
@@ -238,15 +239,13 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
                         if (ContextCompat.checkSelfPermission(InformationReleaseActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                             //申请权限，REQUEST_TAKE_PHOTO_PERMISSION是自定义的常量
                             ActivityCompat.requestPermissions(InformationReleaseActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 11);
+                        } else {
+                            //有权限，直接拍照
+                            photo();
                         }
-                 else {
-                    //有权限，直接拍照
-                    photo();
-                }
                         break;
                     case 1:
                         verifyStoragePermissions(InformationReleaseActivity.this);
-
                         break;
                 }
             }
@@ -258,12 +257,14 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE };
+            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
     /**
      * 6.0判断是否有访问sd卡得权限
+     *
      * @param activity
      */
-    public  void verifyStoragePermissions(Activity activity) {
+    public void verifyStoragePermissions(Activity activity) {
 // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -272,7 +273,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
 // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE);
-        }else{
+        } else {
             Intent intent = new Intent(InformationReleaseActivity.this, TestPicActivity.class);
             startActivity(intent);
         }
@@ -291,9 +292,9 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
             case R.id.rl_information_icon_face:
 
                 hideSoftInputView();
-                if(chat_face_container.getVisibility()==View.GONE){
+                if (chat_face_container.getVisibility() == View.GONE) {
                     chat_face_container.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     chat_face_container.setVisibility(View.GONE);
                 }
                 break;
@@ -309,40 +310,30 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
                 break;
         }
     }
+
     //网络访问进度条弹框
     private ProgressDialog dialog;
+
     //发布资讯
     private void send() {
         //设置一个progressdialog的弹窗
         dialog = ProgressDialog.show(InformationReleaseActivity.this, null, "正在发布，请稍候...", true, false);
         //获取用户输入标题、内容
         String etContents = expressionTextInput.getText().toString();
-
-
-
         // 对内容做处理
-        SpannableStringBuilder sb = handler(expressionTextInput,
-                etContents);
-
-
-
-
-
+        SpannableStringBuilder sb = handler(expressionTextInput, etContents);
         String infoTitle = etInformationTitle.getText().toString();
         final List<File> listfile = new ArrayList<>();
-
-        LogUtils.e("etContents","输入框里面的内容：====="+sb);
-
+        LogUtils.e("etContents", "输入框里面的内容：=====" + sb);
         //上传的图片文件SD卡地址，存放在bimp.mDrr中
         for (int i = 0; i < Bimp.mDrr.size(); i++) {
             listfile.add(new File(Bimp.mDrr.get(i)));
         }
-
-        Handler handler=new Handler(){
+        Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                LogUtils.e("INFO",msg.obj.toString());
-                if(JSON.parseObject(msg.obj.toString()).getInteger("result") == 11){
+                LogUtils.e("INFO", msg.obj.toString());
+                if (JSON.parseObject(msg.obj.toString()).getInteger("result") == 11) {
                     // 删除缓存
                     //FileUtils.deleteDir();
                     listfile.clear();
@@ -350,11 +341,11 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
                     Bimp.mDrr.clear();
                     Bimp.mMax = 0;
                     ToastUtil.t(InformationReleaseActivity.this, "发送成功");
-                    if (dialog.isShowing())dialog.dismiss();
+                    if (dialog.isShowing()) dialog.dismiss();
                     finish();
-                }else if(JSON.parseObject(msg.obj.toString()).getInteger("result") == 12){
+                } else if (JSON.parseObject(msg.obj.toString()).getInteger("result") == 12) {
                     ToastUtil.t(InformationReleaseActivity.this, "发送失败");
-                    if (dialog.isShowing())dialog.dismiss();
+                    if (dialog.isShowing()) dialog.dismiss();
                 }
             }
         };
@@ -367,7 +358,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         DataMap.put("title", infoTitle);
         LogUtils.e("DataMap", JSON.toJSONString(DataMap));
         DataMap.put("files", listfile);
-        new HttpImpl(DataMap,"http://172.16.1.132:8080/Genealogy/servlet2/info/PublishInfo.xml",HttpImpl.POSTMethd,handler).start();
+        new HttpImpl(DataMap, "http://172.16.1.132:8080/Genealogy/servlet2/info/PublishInfo.xml", HttpImpl.POSTMethd, handler).start();
     }
 
 
@@ -379,14 +370,14 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         while (m.find()) {
             String tempText = m.group();
             try {
-                String num = tempText.substring("#[face/png/f_static_".length(), tempText.length()- ".png]#".length());
+                String num = tempText.substring("#[face/png/f_static_".length(), tempText.length() - ".png]#".length());
                 String gif = "face/gif/f" + num + ".gif";
                 /**
                  * 如果open这里不抛异常说明存在gif，则显示对应的gif
                  * 否则说明gif找不到，则显示png
                  * */
                 InputStream is = this.getAssets().open(gif);
-                sb.setSpan(new AnimatedImageSpan(new AnimatedGifDrawable(is,new AnimatedGifDrawable.UpdateListener() {
+                sb.setSpan(new AnimatedImageSpan(new AnimatedGifDrawable(is, new AnimatedGifDrawable.UpdateListener() {
                             @Override
                             public void update() {
                                 gifTextView.postInvalidate();
@@ -395,9 +386,9 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 is.close();
             } catch (Exception e) {
-                String png = tempText.substring("#[".length(),tempText.length() - "]#".length());
+                String png = tempText.substring("#[".length(), tempText.length() - "]#".length());
                 try {
-                    sb.setSpan(new ImageSpan(this, BitmapFactory.decodeStream(this.getAssets().open(png))), m.start(), m.end(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    sb.setSpan(new ImageSpan(this, BitmapFactory.decodeStream(this.getAssets().open(png))), m.start(), m.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
@@ -410,13 +401,21 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
 
 
     private ViewPager mViewPager;
-    /**   表情下小圆点布局  */
+    /**
+     * 表情下小圆点布局
+     */
     private LinearLayout mDotsLayout;
-    /**表情图标*/
+    /**
+     * 表情图标
+     */
     private ImageView image_face;
-    /**每行的表情数量*/
+    /**
+     * 每行的表情数量
+     */
     private int columns = 6;
-    /**   共有几行   */
+    /**
+     * 共有几行
+     */
     private int rows = 4;
     private List<View> views = new ArrayList<>();
     private List<String> staticFacesList;
@@ -436,6 +435,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         mViewPager.setAdapter(mVpAdapter);
         mDotsLayout.getChildAt(0).setSelected(true);
     }
+
     private int getPagerCount() {
         int count = staticFacesList.size();
         return count % (columns * rows - 1) == 0 ? count / (columns * rows - 1)
@@ -466,7 +466,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         // 单击表情执行的操作
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
                     String png = ((TextView) ((LinearLayout) view).getChildAt(1)).getText().toString();
                     if (!png.contains("emotion_del_normal")) {// 如果不是删除图标
@@ -486,14 +486,16 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
 
     /**
      * 表情页改变时，dots效果也要跟着改变
-     * */
+     */
     class PageChange implements ViewPager.OnPageChangeListener {
         @Override
         public void onPageScrollStateChanged(int arg0) {
         }
+
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {
         }
+
         @Override
         public void onPageSelected(int arg0) {
             for (int i = 0; i < mDotsLayout.getChildCount(); i++) {
@@ -548,7 +550,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
 
     /**
      * 向输入框里添加表情
-     * */
+     */
     private void insert(CharSequence text) {
         int iCursorStart = Selection.getSelectionStart((expressionTextInput.getText()));
         int iCursorEnd = Selection.getSelectionEnd((expressionTextInput.getText()));
@@ -563,7 +565,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     /**
      * 删除图标执行事件
      * 注：如果删除的是表情，在删除时实际删除的是tempText即图片占位的字符串，所以必需一次性删除掉tempText，才能将图片删除
-     * */
+     */
     private void delete() {
         if (expressionTextInput.getText().length() != 0) {
             int iCursorEnd = Selection.getSelectionEnd(expressionTextInput.getText());
@@ -589,10 +591,10 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
 
     /**
      * 判断即将删除的字符串是否是图片占位字符串tempText 如果是：则讲删除整个tempText
-     * **/
+     **/
     private boolean isDeletePng(int cursor) {
         String st = "#[face/png/f_static_000.png]#";
-        String content = expressionTextInput    .getText().toString().substring(0, cursor);
+        String content = expressionTextInput.getText().toString().substring(0, cursor);
         if (content.length() >= st.length()) {
             String checkStr = content.substring(content.length() - st.length(),
                     content.length());
@@ -613,7 +615,9 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
     }
 
 
-    /**隐藏软键盘*/
+    /**
+     * 隐藏软键盘
+     */
     public void hideSoftInputView() {
         InputMethodManager manager = ((InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE));
         if (getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
@@ -622,7 +626,7 @@ public class InformationReleaseActivity extends AppCompatActivity implements Vie
         }
     }
 
-        /**
+    /**
      * 判断软键盘是否弹起如弹起则隐藏
      */
     private void isKeyboardShownToHideKeyboard() {

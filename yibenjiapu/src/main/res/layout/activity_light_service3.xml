@@ -31,9 +31,10 @@
         android:id="@+id/rl_light_select1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/rl"
+        android:layout_alignParentEnd="true">
         <TextView
             android:id="@+id/tv_province_and_city"
             android:layout_width="wrap_content"
@@ -47,19 +48,13 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_province_and_city">
             <TextView
-                android:id="@+id/tv_select"
+                android:id="@+id/tv_sub_service_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/tv_jiantou"
                 android:text="四川 成都"
+                android:textSize="16sp"
+                android:textColor="#838080"
                 android:gravity="center"/>
-            <TextView
-                android:id="@+id/tv_jiantou"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/light_jiantou"
-                android:layout_marginRight="10dp"/>
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -82,21 +77,25 @@
             android:text="小区："
             android:textSize="15sp"
             android:textColor="#838080"/>
-        <EditText
-            android:id="@+id/et_community"
+        <TextView
+            android:id="@+id/tv_sub_service_community"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_community"
+            android:text="11111"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#838080"
             android:background="@null"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#e6e6e6"
-            android:layout_below="@+id/et_community"
+            android:layout_below="@+id/tv_sub_service_community"
             android:layout_marginTop="3dp" />
     </RelativeLayout>
     <TextView
-        android:id="@+id/tv_light"
+        android:id="@+id/tv_sub_service"
         android:layout_below="@+id/rl_light_select2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,7 +108,7 @@
         android:background="@drawable/light_btn"/>
     <TextView
         android:id="@+id/tv_prompt"
-        android:layout_below="@+id/tv_light"
+        android:layout_below="@+id/tv_sub_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#1ea6b2"

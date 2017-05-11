@@ -47,19 +47,14 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_province_and_city">
             <TextView
-                android:id="@+id/tv_select"
+                android:id="@+id/tv_build_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/tv_jiantou"
+                android:textSize="16sp"
+                android:textColor="#838080"
                 android:text="四川 成都"
                 android:gravity="center"/>
-            <TextView
-                android:id="@+id/tv_jiantou"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/light_jiantou"
-                android:layout_marginRight="10dp"/>
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -72,9 +67,10 @@
         android:id="@+id/rl_light_select2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/rl_light_select1"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp">
+        android:layout_alignParentEnd="true">
         <TextView
             android:id="@+id/tv_community"
             android:layout_width="wrap_content"
@@ -82,17 +78,21 @@
             android:text="小区："
             android:textSize="15sp"
             android:textColor="#838080"/>
-        <EditText
-            android:id="@+id/et_community"
+        <TextView
+            android:id="@+id/tv_build_community"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_community"
+            android:text="11111"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#838080"
             android:background="@null"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#e6e6e6"
-            android:layout_below="@+id/et_community"
+            android:layout_below="@+id/tv_build_community"
             android:layout_marginTop="3dp" />
     </RelativeLayout>
     <TextView
@@ -131,7 +131,7 @@
         android:layout_below="@+id/tv_prompt"
         android:layout_centerHorizontal="true">
         <TextView
-            android:id="@+id/tv_time_tens_digit"
+            android:id="@+id/tv_build_time_tens_digit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
@@ -140,7 +140,7 @@
             android:textColor="#ffffff"
             android:background="@drawable/action_time"/>
         <TextView
-            android:id="@+id/tv_time_units_digit"
+            android:id="@+id/tv_build_time_units_digit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"

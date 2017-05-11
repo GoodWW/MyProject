@@ -1,25 +1,29 @@
 package com.xunman.yibenjiapu.bean;
 
-import java.io.Serializable;
-import java.util.List;
-
 /**
- * 项目名： UpdateSoftDemo
  * 创建者： xxxxx
- * 创建时间：  2017/5/5 0005 18:08
+ * 创建时间：  2017/5/10 0005 18:08
  * 包名：com.szy.update
  * 文件名： ${name}
- * 描述：  活动列表页面实体类
+ * 描述：  活动页面实体类
  */
 
 public class ActionLightBean {
-
-    /**
-     * result : 11
-     */
-
     private int result;
-    private List<ActionListBean> info;
+    private String city;
+    private String community;
+    private int num;
+    private int lightNum;
+    private int days;
+    private Boolean isUserLight;
+
+    public Boolean getUserLight() {
+        return isUserLight;
+    }
+
+    public void setUserLight(Boolean userLight) {
+        isUserLight = userLight;
+    }
 
     public int getResult() {
         return result;
@@ -29,81 +33,43 @@ public class ActionLightBean {
         this.result = result;
     }
 
-    public List<ActionListBean> getInfo() {
-        return info;
+    public String getCity() {
+        return city;
     }
 
-    public void setInfo(List<ActionListBean> info) {
-        this.info = info;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public static class ActionListBean{
-        private int id;
-        private boolean type;//活动标题
-        private String title;
-        //活动标签
-        private List<String> tag;
-        //活动简介
-        private String intro;
-        //活动报名人数
-        private int peopleNum;
-        //活动时间
-        private String time;
+    public String getCommunity() {
+        return community;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public void setCommunity(String community) {
+        this.community = community;
+    }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    public int getNum() {
+        return num;
+    }
 
-        public List<String> getTag() {
-            return tag;
-        }
+    public void setNum(int num) {
+        this.num = num;
+    }
 
-        public void setTag(List<String> tag) {
-            this.tag = tag;
-        }
+    public int getLightNum() {
+        return lightNum;
+    }
 
-        public String getIntro() {
-            return intro;
-        }
+    public void setLightNum(int lightNum) {
+        this.lightNum = lightNum;
+    }
 
-        public void setIntro(String intro) {
-            this.intro = intro;
-        }
+    public int getDays() {
+        return days;
+    }
 
-        public int getPeopleNum() {
-            return peopleNum;
-        }
-
-        public void setPeopleNum(int peopleNum) {
-            this.peopleNum = peopleNum;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public boolean isType() {
-            return type;
-        }
-
-        public void setType(boolean type) {
-            this.type = type;
-        }
+    public void setDays(int days) {
+        this.days = days;
     }
 }

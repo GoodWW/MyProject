@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.xunman.yibenjiapu.bean.ActionLightBean;
+import com.xunman.yibenjiapu.bean.ActionLightListBean;
 import com.xunman.yibenjiapu.ui.R;
 
 import java.text.ParseException;
@@ -23,9 +23,9 @@ import java.util.List;
 
 public class ActionAdapter extends BaseAdapter {
     private Context context;
-    private List<ActionLightBean.ActionListBean> actionListBeen;
+    private List<ActionLightListBean.ActionListBean> actionListBeen;
 
-    public ActionAdapter(Context activity, List<ActionLightBean.ActionListBean> actionListBeen) {
+    public ActionAdapter(Context activity, List<ActionLightListBean.ActionListBean> actionListBeen) {
         this.context = activity;
         this.actionListBeen = actionListBeen;
     }

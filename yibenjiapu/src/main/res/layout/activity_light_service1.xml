@@ -52,6 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/tv_jiantou"
                 android:text="四川 成都"
+                android:textSize="16sp"
+                android:textColor="#838080"
                 android:gravity="center"/>
             <TextView
                 android:id="@+id/tv_jiantou"
@@ -87,6 +89,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_community"
+            android:text="11111"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#838080"
             android:background="@null"/>
         <View
             android:layout_width="match_parent"
@@ -121,11 +127,12 @@
         android:textSize="11sp"
         android:text="规则\n1、如果您的小区已经点亮，您就可以直接申请爱老服务\n2、如果您的小区没被点亮，您可以点亮自己的小区，只要您所在的小区被点亮相应的次数，我们将会在您的小区尽可能的在规定的时间内建立服务点\n3、一个用户只能对一个小区点亮一次\n4、若您输入的小区名称未被搜索到，您可以根据提示手动添加自己的小区然后点亮"/>
     <ImageView
+        android:id="@+id/iv_light_proportion"
         android:layout_below="@+id/tv_rule"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
         android:scaleType="fitXY"
-        android:src="@drawable/light_service1"
+        android:src="@drawable/light_proportion_0"
         android:layout_alignParentRight="true"/>
 </RelativeLayout>

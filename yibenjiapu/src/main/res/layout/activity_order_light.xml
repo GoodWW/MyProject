@@ -35,9 +35,10 @@
         android:id="@+id/rl_light_select1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/rl"
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:id="@+id/tv_province_and_city"
@@ -54,20 +55,22 @@
             android:layout_toRightOf="@+id/tv_province_and_city">
 
             <TextView
-                android:id="@+id/tv_select"
+                android:id="@+id/tv_service_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/tv_jiantou"
                 android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#838080"
                 android:text="四川 成都" />
 
-            <TextView
-                android:id="@+id/tv_jiantou"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/light_jiantou" />
+            <!--<TextView-->
+                <!--android:id="@+id/tv_jiantou"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:background="@drawable/light_jiantou" />-->
         </RelativeLayout>
 
         <View
@@ -94,17 +97,21 @@
             android:textColor="#838080"
             android:textSize="15sp" />
 
-        <EditText
-            android:id="@+id/et_community"
+        <TextView
+            android:id="@+id/tv_service_community"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_community"
+            android:text="11111"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#838080"
             android:background="@null" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/et_community"
+            android:layout_below="@+id/tv_service_community"
             android:layout_marginTop="3dp"
             android:background="#e6e6e6" />
     </RelativeLayout>
@@ -344,6 +351,7 @@
                 android:textSize="20sp" />
 
             <LinearLayout
+                android:id="@+id/ll_rjzl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
@@ -419,10 +427,12 @@
         </LinearLayout>
     </ScrollView>
     <RelativeLayout
+        android:id="@+id/rl_bottom_statistics"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentBottom="true"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:visibility="gone">
         <View
             android:id="@+id/v_1"
             android:layout_width="match_parent"
@@ -457,6 +467,7 @@
                 android:text="老年生活"
                 android:textColor="#27d0df"
                 android:gravity="center"
+                android:visibility="gone"
                 android:background="@drawable/select_service_item"/>
             <TextView
                 android:id="@+id/tv_select_service_item2"
@@ -464,6 +475,7 @@
                 android:layout_height="wrap_content"
                 android:text="理疗保健"
                 android:layout_margin="3dp"
+                android:visibility="gone"
                 android:layout_toRightOf="@+id/tv_select_service_item1"
                 android:textColor="#27d0df"
                 android:gravity="center"
@@ -474,6 +486,7 @@
                 android:layout_height="wrap_content"
                 android:text="康复训练"
                 android:layout_margin="3dp"
+                android:visibility="gone"
                 android:layout_toRightOf="@+id/tv_select_service_item2"
                 android:textColor="#27d0df"
                 android:gravity="center"
@@ -484,6 +497,7 @@
                 android:layout_height="wrap_content"
                 android:text="营养套餐"
                 android:layout_margin="3dp"
+                android:visibility="gone"
                 android:layout_below="@+id/tv_select_service_item1"
                 android:textColor="#27d0df"
                 android:gravity="center"
@@ -494,6 +508,7 @@
                 android:layout_height="wrap_content"
                 android:text="保洁"
                 android:layout_margin="3dp"
+                android:visibility="gone"
                 android:layout_below="@+id/tv_select_service_item1"
                 android:layout_toRightOf="@+id/tv_select_service_item4"
                 android:textColor="#27d0df"
@@ -503,26 +518,64 @@
                 android:id="@+id/tv_select_service_item6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="其他"
+                android:text="日间照料"
                 android:layout_margin="3dp"
+                android:visibility="gone"
                 android:layout_below="@+id/tv_select_service_item1"
                 android:layout_toRightOf="@+id/tv_select_service_item5"
                 android:textColor="#27d0df"
                 android:gravity="center"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他"
+                android:layout_margin="3dp"
+                android:layout_below="@+id/tv_select_service_item4"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:visibility="gone"
+                android:background="@drawable/select_service_item"/>
+            <TextView
+                android:id="@+id/tv_select_service_item8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他"
+                android:layout_margin="3dp"
+                android:layout_below="@+id/tv_select_service_item4"
+                android:layout_toRightOf="@+id/tv_select_service_item4"
+                android:textColor="#27d0df"
+                android:gravity="center"
+                android:visibility="gone"
                 android:background="@drawable/select_service_item"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/rl_select_service">
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/service_pay"
-                android:text="立即支付：¥111"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+                    <TextView
+                        android:id="@+id/tv_mo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="立即支付：¥" />
+                    <TextView
+                        android:id="@+id/tv_service_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="111"
+                        android:layout_toRightOf="@+id/tv_mo" />
+                </RelativeLayout>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

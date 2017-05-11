@@ -15,7 +15,7 @@ import android.widget.ListView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.xunman.yibenjiapu.adapter.ActionAdapter;
-import com.xunman.yibenjiapu.bean.ActionLightBean;
+import com.xunman.yibenjiapu.bean.ActionLightListBean;
 import com.xunman.yibenjiapu.ui.ActionActivity;
 import com.xunman.yibenjiapu.ui.ActionLightActivity;
 import com.xunman.yibenjiapu.ui.R;
@@ -43,8 +43,8 @@ public class ActionFragmentTest extends Fragment{
     private View view;
     private ListView lvAction;
     private ActionAdapter actionAdapter;
-    private List<ActionLightBean.ActionListBean> actionListBeen;
-    private ActionLightBean actionLightBean;
+    private List<ActionLightListBean.ActionListBean> actionListBeen;
+    private ActionLightListBean actionLightListBean;
 
     public static Fragment instance() {
         ActionFragmentTest actionFragment = new ActionFragmentTest();
@@ -105,8 +105,8 @@ public class ActionFragmentTest extends Fragment{
                     JSONObject JSONobj = JSON.parseObject(info);
                     int result = JSONobj.getInteger("result");
                     if(result == 11){
-                        actionLightBean =JSON.toJavaObject(JSON.parseObject(info), ActionLightBean.class);
-                        actionListBeen.addAll(actionLightBean.getInfo());
+                        actionLightListBean =JSON.toJavaObject(JSON.parseObject(info), ActionLightListBean.class);
+                        actionListBeen.addAll(actionLightListBean.getInfo());
                     }else if(result == 12){
                         ToastUtil.t(getActivity(), "活动列表加载失败");
                     }

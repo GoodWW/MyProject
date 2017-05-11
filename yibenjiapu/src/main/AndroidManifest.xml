@@ -66,10 +66,7 @@
             android:name=".FirstActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".MainActivity"
@@ -273,7 +270,19 @@
         </activity>
         <!--点亮活动服务页面-->
         <activity
-            android:name=".ServiceLightActivity"
+            android:name=".LightServiceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar">
+        </activity>
+        <!--点亮活动组建页面-->
+        <activity
+            android:name=".LightBuildActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar">
+        </activity>
+        <!--点亮活动预约服务页面-->
+        <activity
+            android:name=".LightSubscribeServiceActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar">
         </activity>
@@ -282,6 +291,10 @@
             android:name=".LightOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--资讯发布页面-->
         <activity
