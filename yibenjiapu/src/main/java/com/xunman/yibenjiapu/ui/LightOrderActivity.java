@@ -206,6 +206,7 @@ public class LightOrderActivity extends AppCompatActivity implements View.OnClic
                 if(tvServicePrice.getText().toString().equals("0") && tvSelectServiceItem5.getVisibility() == View.GONE){
                     rlBottomStatistics.setVisibility(View.GONE);
                 }
+
                 break;
             case R.id.tv_select_service_item4:
                 tvSelectServiceItem4.setVisibility(View.GONE);
